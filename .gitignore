@@ -1,0 +1,64 @@
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# ASP.NET MVC
+# Ignore build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]ist/Assets/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+
+# User-specific files
+.idea/
+.vs/
+.vscode/
+
+# User-specific files (Windows)
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer Logs
+*.log
+
+# ASP.NET
+# Ignore the temporary ASP.NET files
+\obj/
+\bin/
+
+# Rider IDE settings
+.idea/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Microsoft Visual Studio for Mac config folder
+.vscode/
+
+# JetBrains Rider
+.idea/
+
+# ASP.NET project system
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build directories
+bin/
+obj/
