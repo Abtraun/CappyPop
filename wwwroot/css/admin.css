@@ -1,0 +1,533 @@
+/* Google Fonts Import Link */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Paytone+One&display=swap");
+
+:root {
+	--primary-bg-color:                #FFF9EA;
+	--secondary-bg-color:                #FFD9AC;
+
+	--primary-text-color:              #384D6C;
+	--secondary-text-color:              #666666;
+	--textfield-color:              #C2C2C2;
+
+
+	--yellow-color:           #FFB30E;
+	--light-yellow-color:           #FFD781;
+	--orange-color:           #F17228;
+	--light-orange-color:           #FFAC4B;
+  --red-color: #E95322;
+  }
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Paytone One", sans-serif;
+}
+
+.admin-dashbroad{
+  background-color: var(--primary-bg-color);
+}
+
+/*==========================
+	Start Sidebar CSS
+============================*/
+
+.sidebar{
+  position: fixed;
+  top: 30px;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  border-radius: 24px;
+  background: var(--primary-bg-color);
+  z-index: 100;
+  transition: all 0.5s ease;
+}
+
+.sidebar .logo-details{
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.sidebar .logo-details img{
+  height: 50px;
+  margin: 0 20px;
+  text-align: center;
+  line-height: 50px;
+}
+.sidebar .logo-details .logo_name{
+  font-size: 30px;
+  color: var(--orange-color);
+  font-weight: 600;
+  transition: 0.3s ease;
+  transition-delay: 0.1s;
+}
+.sidebar .logo-details .logo_name span2{
+  color: var(--yellow-color);
+  transition: 0.3s ease;
+  transition-delay: 0.1s;
+}
+
+.sidebar .nav-links{
+  height: 100%;
+  padding: 30px 0 150px 0;
+  overflow: auto;
+}
+
+.sidebar .nav-links::-webkit-scrollbar{
+  display: none;
+}
+.sidebar .nav-links li{
+  border-radius: 12px;
+  position: relative;
+  list-style: none;
+  transition: all 0.4s ease;
+}
+
+.sidebar .nav-links li:hover{
+  background-color: var(--light-yellow-color);
+}
+
+.sidebar .nav-links li .iocn-link{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar .nav-links li i{
+  height: 50px;
+  min-width: 78px;
+  text-align: center;
+  line-height: 50px;
+  color: var(--light-orange-color);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.sidebar .nav-links li.showMenu i.arrow{
+  transform: rotate(-180deg);
+}
+
+.sidebar .nav-links li a{
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.sidebar .nav-links li a .link_name{
+  font-size: 18px;
+  color: var(--primary-text-color);
+  transition: all 0.4s ease;
+}
+.sidebar .nav-links li a .link_name:hover{
+  background-color: var(--light-yellow-color);
+
+}
+
+.sidebar .nav-links li .sub-menu{
+  padding: 6px 6px 14px 80px;
+  margin-top: -10px;
+  background: none;
+  display: none;
+}
+.sidebar .nav-links li.showMenu .sub-menu{
+  display: block;
+}
+.sidebar .nav-links li .sub-menu a{
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-text-color);
+  font-size: 1rem;
+  padding: 5px 15px;
+  white-space: nowrap;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.sidebar .nav-links li .sub-menu a:hover{
+  background-color: var(--yellow-color);
+}
+
+
+.sidebar .nav-links li .sub-menu .link_name{
+  display: none;
+}
+
+.sidebar .nav-links li .sub-menu.blank{
+  opacity: 1;
+  pointer-events: auto;
+  padding: 3px 20px 6px 16px;
+  opacity: 0;
+  pointer-events: none;
+}
+.sidebar .nav-links li:hover .sub-menu.blank{
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sidebar .profile-details{
+  position: fixed;
+  bottom: 0;
+  width: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary-bg-color);
+  padding: 12px 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar.close .profile-details{
+  width: 78px;
+}
+.sidebar .profile-details .profile-content{
+  display: flex;
+  align-items: center;
+}
+.sidebar .profile-details img{
+  height: 52px;
+  width: 52px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 0 14px 0 12px;
+  background: var(--primary-bg-color);
+  transition: all 0.5s ease;
+}
+
+.sidebar .profile-details .profile_name,
+.sidebar .profile-details .job{
+  color: var(--primary-text-color);
+  font-size: 18px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.sidebar .profile-details .job{
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+}
+
+/*==========================
+	End Sidebar CSS
+============================*/
+
+/*==========================
+	Start Dashbroad Infor Card CSS
+============================*/
+
+.home-section{
+  position: relative;
+  background-image: url("img/bg-image");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	overflow: visible;
+  top: 0;
+}
+.home-title{
+  margin: 20px 0 20px 0;
+  display: flex;
+  padding-bottom: 20px;
+	border-bottom: 1px solid var(--textfield-color);
+}
+.home-section .home-title h1{
+  color: var(--primary-text-color);
+  font-size: 30px;
+}
+
+.home-section .dashbroad-card{
+  margin-top: 30px;
+}
+
+.home-section .dashbroad-card .single-card{
+  background: #fff;
+  width: auto;
+	color: var(--primary-text-color);
+	padding: 16px 30px;
+	border-radius: 10px;
+	position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	-webkit-transition: all .3s ease-out 0s;
+    -moz-transition: all .3s ease-out 0s;
+    -ms-transition: all .3s ease-out 0s;
+    -o-transition: all .3s ease-out 0s;
+    transition: all .3s ease-out 0s;
+}
+.home-section .dashbroad-card .single-card:hover{
+	box-shadow: 0px 5px 5px var(--secondary-bg-color);
+	transform: translateY(-5px);
+}
+.home-section .dashbroad-card .single-card i{
+	font-size:40px;
+	color: var(--light-orange-color);
+  margin-left: 50px;
+}
+.home-section .dashbroad-card .single-card .content {
+	text-align: center;
+}
+.home-section .dashbroad-card .single-card .content h3{
+	font-family: "Paytone One", sans-serif;
+	color: var(--primary-text-color);
+	font-size: 26px;
+	margin-top: 10px;
+	
+}
+.home-section .dashbroad-card .single-card .content h4{
+  font-family: "Montserrat", sans-serif;
+	color: var(--secondary-text-color);
+  font-size: 16px;
+  font-weight: 600;
+	margin-top:5px;
+}
+
+/*==========================
+	End Dashbroad Infor Card CSS
+============================*/
+
+/*==========================
+	Start Boba Edit List CSS
+============================*/
+.boba-edit-list .single-edit-list{
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #fff;
+  display: flex;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.boba-edit-list .single-edit-list h5{
+  color: var(--primary-text-color);
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+.boba-edit-list .single-edit-list h6{
+  color: var(--primary-text-color);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 6px;
+
+}
+.boba-edit-list .single-edit-list p{
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-text-color);
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.boba-edit-list .single-edit-list img{
+  align-items: center;
+  border-radius: 12px;
+}
+.boba-edit-list .single-edit-list .btn{
+  display: inline-block;
+  width: 100%;
+  color: #fff;
+  background: var(--light-orange-color);
+  margin-bottom: 10px;
+}
+
+.boba-edit-list .single-edit-list .btn:hover{
+	color:#fff;
+	background: var(--orange-color);
+}
+
+.boba-edit-list .single-edit-list .btn.primary{
+	background: #ffffff;
+	color: var(--light-orange-color);
+	border-radius: 24px;
+}
+.boba-edit-list .single-edit-list .btn.primary:hover{
+	background: var(--light-yellow-color);
+	color:#fff;
+}
+/*==========================
+	End Boba Edit List CSS
+============================*/
+
+/*==========================
+	Start Detail Information CSS
+============================*/
+
+.detail-information{
+  padding: 0;
+}
+.detail-information .information-form{
+	padding:30px 40px;
+}
+
+.detail-information .information-form .btn {
+	display: inline-block;
+	margin-right: 10px;
+	line-height: 20px;
+  padding: 10px 40px;
+	width:auto;
+	background: var(--light-orange-color);
+	color:#fff;
+}
+.detail-information .information-form .btn:hover{
+	background: var(--orange-color);
+	color:#fff;
+}
+
+.detail-information .information-form .btn.primary {
+	display: inline-block;
+	margin-right: 10px;
+	line-height: 20px;
+  padding: 10px 40px;
+	width:auto;
+	background: #fff;
+	color: var(--light-orange-color);
+}
+.detail-information .information-form  .btn.primary:hover{
+	background: var(--light-yellow-color);
+	color:#fff;
+}
+
+/*==========================
+	End Detail Information CSS
+============================*/
+
+/*==========================
+	Start Search CSS
+============================*/
+
+.home-section .search{
+	position:relative;
+}
+.home-section .search input {
+	width: 100%;
+	height: 45px;
+	font-size: 14px;
+	color: var(--secondary-text-color);
+	background: transparent;
+	padding: 0 70px 0 20px;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	border: 1px solid var(--textfield-color);
+	border-radius: 12px;
+}
+.home-section .search .button {
+	position: absolute;
+	right: 0px;
+	top: 0;
+	height: 44px;
+	width: 50px;
+	line-height: 45px;
+	text-align: center;
+	font-size: 20px;
+	color: var(--light-orange-color);
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	border-radius: 0 12px 12px 0;
+}
+.home-section .search .button:hover {
+	background: var(--light-orange-color);
+	color:#fff;
+}
+
+/*==========================
+	End Search CSS
+============================*/
+
+/*==========================
+	Start Notifications CSS
+============================*/
+
+.notification .single-notification {
+  display: flex;
+  align-items: center;
+  padding: 0.55rem 0.65rem 0.55rem 0.75rem;
+  border-radius: 24px;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  background-color: #fff;
+}
+
+
+.notification .single-notification .icon{
+  padding: 0.5rem;
+  width: 80px;
+  margin-right: 1rem;
+  border-radius: 100%;
+  background-color: var(--primary-bg-color);
+
+}
+
+.notification .single-notification .notification-content {
+  display: inline-block;
+  align-items:center;
+  width: 600px;
+}
+
+.notification .single-notification .notification-content span{
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-text-color);
+  font-size: 12px;
+  line-height: 20px;
+  margin-bottom: 10px;
+
+}
+
+.notification .single-notification .notification-content h4{
+  font-family: "Paytone One", sans-serif;
+  color: var(--yellow-color);
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.notification .single-notification .notification-content p{
+  font-family: "Montserrat", sans-serif;
+  color: var(--primary-text-color);
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+.notification .single-notification .close{
+  transition:all 0.2s ease-in-out;
+  color: var(--orange-color);
+  padding: 0.75rem;
+  cursor:pointer;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+.close:hover{
+  color: var(--red-color)
+}
+
+/*==========================
+	End Notifications CSS
+============================*/
+
+
+/*==========================
+	Start Deletion Modal CSS
+============================*/
+
+
+/*==========================
+	End Deletion Modal CSS
+============================*/
+
+
+@media screen and (max-width: 400px){
+  .sidebar{
+    width: 240px;
+  }
+
+  .sidebar .profile-details{
+    width: 240px;
+  }
+
+  .home-section{
+    left: 240px;
+    width: calc(100% - 240px);
+  }
+
+}
