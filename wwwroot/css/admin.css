@@ -15,6 +15,7 @@
 	--orange-color:           #F17228;
 	--light-orange-color:           #FFAC4B;
   --red-color: #E95322;
+  --white-color: #fff;
   }
 
 *{
@@ -165,7 +166,7 @@
 .sidebar .profile-details{
   position: fixed;
   bottom: 0;
-  width: 260px;
+  width: 300px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -174,9 +175,6 @@
   transition: all 0.5s ease;
 }
 
-.sidebar.close .profile-details{
-  width: 78px;
-}
 .sidebar .profile-details .profile-content{
   display: flex;
   align-items: center;

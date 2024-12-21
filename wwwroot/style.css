@@ -15,6 +15,8 @@
 	--light-yellow-color:           #FFD781;
 	--orange-color:           #F17228;
 	--light-orange-color:           #FFAC4B; 
+	--red-color: #E95322;
+	--white-color: #fff;
   }
 
 body{
@@ -521,7 +523,7 @@ body{
 }
 
 .slider .single-slider .btn.primary{
-	background: #ffffff;
+	background: var(--white-color);
 	border: var(--light-orange-color);
 	border-radius: 24px;
 	color: var(--light-orange-color);
@@ -597,7 +599,7 @@ body{
 	text-align: left;
 	z-index:3;
 	border-radius:5px;
-	background:#ffffff;
+	background:var(--white-color);
 	 -webkit-transition: all .3s ease-out 0s;
     -moz-transition: all .3s ease-out 0s;
     -ms-transition: all .3s ease-out 0s;
@@ -642,7 +644,7 @@ body{
 	background-color: var(--primary-bg-color);
 }
 .Feautes .section-title h2{
-	color:#f17228;
+	color: var(--orange-color);
 	font-weight:600;
 	font-size:30px;
 }
@@ -674,7 +676,7 @@ body{
 .Feautes .single-features .signle-icon i{
 	font-size:50px;
 	color: var(--light-orange-color);
-	background-color: #fff;
+	background-color: var(--white-color);
 	position:absolute;
 	left:50%;
 	margin-left:-50px;
@@ -692,7 +694,7 @@ body{
 }
 .Feautes .single-features:hover .signle-icon i{
 	background: var(--light-orange-color);
-	color:#fff;
+	color: var(--white-color);
 	border-color:transparent;
 }
 .Feautes .single-features h3{
@@ -884,7 +886,7 @@ body{
 	position: absolute;
 	width: 200px;
 	height: 200px;
-	background: #fff;
+	background: var(--white-color);
 	opacity: 0;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	border-radius: 100%;
@@ -955,26 +957,26 @@ body{
 	left: 120px;
 	margin-right:20px;
 	font-weight:500;
-	color:#ffffff;
+	color: var(--white-color);
 }
 
 .call-action .content .btn:hover{
 	background: var(--orange-color);
-	color:#fff;
+	color: var(--white-color);
 }
 .call-action .content .btn:last-child{
 	margin-right:0px;
 }
 .call-action .content .second {
-	background-color:#fff;
+	background-color: var(--white-color);
 	color: var(--light-orange-color);
 }
 .call-action .content .second:before{
-	background:#fff;
+	background: var(--white-color);
 }
 .call-action .content .second:hover{
 	background: var(--light-yellow-color);
-	color: #fff;
+	color: var(--white-color);
 }
 .call-action .content .second i{
 	font-size: 30px;
@@ -993,7 +995,7 @@ body{
 	background-image: url(img/our-team.png);
 }
 .our-team  .team-member {
-	background: #fff;
+	background: var(--white-color);
 	color: var(--primary-text-color);
 	padding: 40px 30px;
 	margin-bottom: 30px;
@@ -1070,11 +1072,11 @@ body{
 .our-team .button .btn:hover {
 	margin-left: 30px;
 	background-color: var(--light-yellow-color);
-	color: #fff;
+	color: var(--white-color);
 }
 
 .our-team .button .btn.primary{
-	background: #ffffff;
+	background: var(--white-color);
 	padding: 10px 0;
 	justify-content: center;
 	align-items: center;
@@ -1085,10 +1087,8 @@ body{
 }
 .our-team .button .btn.primary:hover{
 	background: var(--light-yellow-color);
-	color:#fff;
+	color: var(--white-color);
 }
-
-
 
 /*===============================
 	End Our Team CSS
@@ -1126,7 +1126,7 @@ body{
 	font-size: 1em;
 	padding: 45px 20px 40px 50px;
 	margin-top: 30px;
-	background-color: #ffffff;
+	background-color: var(--white-color);
 	border-radius: 5px;
 	box-shadow: 0px 5px 5px var(--secondary-bg-color);
 	text-align: left;
@@ -1190,7 +1190,7 @@ body{
 .portfolio .single-pf .btn {
 	color: var(--light-orange-color);
 	z-index: 3;
-	background: #fff;
+	background: var(--white-color);
 	position: absolute;
 	left: 40%;
 	top: 40%;
@@ -1219,115 +1219,7 @@ body{
 	display:none;
 
 }
-/* Slider Nav */
-.pf-details .image-slider .owl-nav{
-	margin: 0;
-    position: absolute;
-    top: 50%;
-    width: 100%;
-	margin-top:-25px;
-}
-.pf-details .image-slider .owl-carousel .owl-nav div {
-	height: 50px;
-	width: 50px;
-	line-height: 45px;
-	background: #fff;
-	color: #1A76D1;
-	position: absolute;
-	margin: 0;
-	border-radius: 100%;
-	font-size: 20px;
-	text-align: center;
-	-webkit-transition: all 0.4s ease;
-	-moz-transition: all 0.4s ease;
-	transition: all 0.4s ease;
-	box-shadow: 0px 0px 10px #0000001a;
-}
-.pf-details .image-slider .owl-carousel .owl-nav div:hover{
-	color:#fff;
-	background:#1A76D1;
-}
-.pf-details .image-slider .owl-carousel .owl-controls .owl-nav .owl-prev{
-	left:20px;
-}
-.pf-details .image-slider .owl-carousel .owl-controls .owl-nav .owl-next{
-	right:20px;
-}
-.pf-details .image-slider{
-	border-radius:8px 8px 0 0;
-}
-.pf-details .image-slider img{
-	height:100%;
-	width:100%;
-}
-.pf-details .date{
-	background: #1a76d1;
-	display: block;
-	padding: 20px;
-	text-align: center;
-	border-radius: 0;
-	border: none;
-	margin: 0;
-	margin-top: -1px;
-}
-.pf-details .date ul li{
-	font-size:16px;
-	color:#fff;
-	display:inline-block;
-	margin-right:60px;
-}
-.pf-details .date ul li:last-child{
-	margin:0;
-}
-.pf-details .date ul li span{
-	font-weight:500;
-	display:inline-block;
-	margin-right:5px;
-}
-.pf-details .body-text{}
-.pf-details .body-text h3 {
-	font-size: 30px;
-	font-weight: 600;
-	color: #333;
-	margin-top: 40px;
-}
-.pf-details .body-text p{
-	margin-top:20px;
-}
-.pf-details .body-text .share{
-	margin-top:40px;
-}
-.pf-details .body-text .share h4 {
-	font-size: 15px;
-	font-weight: 500;
-	display: inline-block;
-}
-.pf-details .body-text .share ul{
-	display:inline-block;
-	margin-left:12px;
-}
-.pf-details .body-text .share ul li{
-	display:inline-block;
-	margin-right:10px;
-}
-.pf-details .body-text .share ul li:last-child{
-	margin-right:0;
-}
-.pf-details .body-text .share ul li a{
-	height:35px;
-	width:35px;
-	line-height:35px;
-	text-align:center;
-	border:1px solid #C8C8C8;
-	color:#757575;
-	display:block;
-	border-radius:50%;
-}
-.pf-details .body-text .share ul li a:hover{
-	color:#fff;
-	border-color:transparent;
-	background:#1A76D1;
-}
+
 /*==========================
 	End Filter Portfolio CSS
 ============================*/
@@ -1391,372 +1283,6 @@ body{
 	End Privacy CSS
 ===========================*/
 
-/*==========================
-	Start Departments CSS
-============================*/
-.departments .department-tab .nav{
-	margin-bottom: 30px;
-    background:transform;
-	position:relative;
-}
-.departments .department-tab .nav li{
-	text-align:center;
-	margin-right:54px;
-}
-.departments .department-tab .nav li a i {
-	font-size: 50px;
-	color: #868686;
-}
-.departments .department-tab .nav li a:hover{
-	background:transparent;
-}
-.departments .department-tab .nav li a.active i{
-	color:#1a76d1;
-}
-.departments .department-tab .nav li a {
-	color: #fff;
-	margin-top: 20px;
-	border: none;
-	padding: 0;
-	padding-bottom: 20px;
-	border-bottom:2px solid transparent;
-	padding:0 10px 20px 10px;
-}
-.departments .department-tab .nav li a.active{
-	border-color:#1a76d1;
-}
-.departments .department-tab .nav li span{
-	display:block;
-}
-.departments .department-tab .nav li .first {
-	padding-top: 20px;
-	font-size: 20px;
-	font-weight: 500;
-	color: #868686;
-}
-.departments .department-tab .nav li a.active .first{
-	color:#2C2D3F;
-}
-.departments .department-tab .nav li .second {
-	font-size: 14px;
-	font-weight: 400;
-	color: #868686;
-	margin-top: 3px;
-}
-.departments .department-tab .tab-pane .department-left{}
-.departments .department-tab .tab-pane .department-left h3{
-	color:#2C2D3F;
-	font-weight:600;
-	font-size:26px;
-	position:relative;
-	padding-bottom:15px;
-	margin-bottom:30px;
-}
-.departments .department-tab .tab-pane .department-left h3:before{
-	position:absolute;
-	content:"";
-	left:0;
-	bottom:0;
-	height:3px;
-	width:50px;
-	background:#2C2D3F;
-}
-.departments .department-tab .tab-pane .department-left .p1 {
-	color: #1a76d1;
-	font-weight: 500;
-	margin-bottom: 18px;
-}
-.departments .department-tab .tab-pane .department-left p {
-	margin-bottom: 20px;
-}
-.departments .department-tab .tab-pane .department-left .list{}
-.departments .department-tab .tab-pane .department-left .list li{
-	position:relative;
-	padding-left: 30px;
-	margin-bottom:6px;
-}
-.departments .department-tab .tab-pane .department-left .list li:last-child{
-	margin-bottom:0px;
-}
-.departments .department-tab .tab-pane .department-left .list li i {
-	position: absolute;
-	left: 0;
-	height: 15px;
-	width: 15px;
-	line-height: 15px;
-	color: #fff;
-	background: #1a76d1;
-	text-align: center;
-	border-radius: 100%;
-	font-size: 8px;
-	margin-right: 20px;
-	top: 4px;
-}
-.departments .department-tab .tab-content .tab-text h2{
-	font-size:18px;
-}
-.departments .department-tab .tab-content .tab-text p{
-	color:#555;
-	margin-top:10px;
-}
-/*==========================
-	End Departments CSS
-============================*/
-
-/*====================
-	Start Team CSS
-======================*/ 
-.team{
-	background-image:url('img/testi-bg.jpg');
-	background-size:cover;
-	background-position:center;
-	background-repeat:no-repeat;
-	position:relative;
-}
-.team.single-page{
-	background:#fff;
-}
-.team .section-title h2{
-	color:#fff;
-}
-.team .section-title p{
-	color:#fff;
-}
-.team .single-team {
-	background: #fff;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-	margin-top: 30px;
-	text-align: center;
-	box-shadow: 0px 0px 10px #00000021;
-	border-radius: 5px;
-	overflow: hidden;
-}
-.team .t-head{
-	position:relative;
-	overflow:hidden;
-}
-.team .t-head::before {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #fff;
-	opacity:0;
-	visibility:hidden;
-	content: "";
-	z-index: 2;
-	-webkit-transition:all 0.3s ease;
-	-moz-transition:all 0.3s ease;
-	transition:all 0.3s ease;
-}
-.team .single-team:hover .t-head::before{
-	visibility:visible;
-	opacity:0.5;
-}
-.team .t-head img{
-	width:100%;
-	position:relative;
-}
-.team .t-icon a {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	width: 150px;
-	height: 46px;
-	line-height: 40px;
-	opacity: 0;
-	visibility: hidden;
-	font-weight: 400;
-	text-align: center;
-	color: #fff;
-	border-radius: 0;
-	-webkit-transform: scale(0.6);
-	-moz-transform: scale(0.6);
-	transform: scale(0.6);
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-	z-index: 99;
-	margin: -23px 0 0 -75px;
-	font-size: 15px;
-	background: #2889E4;
-	font-size: 13px;
-	line-height: 46px;
-	padding:0;
-	border-radius:4px;
-}
-.team .single-team:hover .t-icon a {
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	transform: scale(1);
-	opacity:1;
-	visibility:visible;
-}
-.team .t-bottom {
-	text-align: center;
-	position: relative;
-	padding: 0 20px;
-	padding: 25px 20px;
-}
-.team .t-bottom p {
-	color: #666;
-	font-size: 13px;
-	display: block;
-	margin-bottom: 4px;
-}
-.team .t-bottom h2 {
-	font-size: 18px;
-	text-transform: capitalize;
-	font-weight: 500;
-	color: #2C2D3F;
-}
-.team .t-bottom h2 a:hover{
-	color:#1A76D1;
-}
-/*-- Doctor Details --*/
-.doctor-details-left {
-	-webkit-box-shadow: 0px 0px 10px 0px #ddd;
-	box-shadow: 0px 0px 10px 0px #ddd;
-	border-radius: 10px;
-	overflow: hidden;
-}
-.doctor-details-item img {
-  width: 100%;
-  border-radius:0;
-}
-.doctor-details-item .doctor-details-contact {
-	padding: 50px;
-}
-.doctor-details-item .doctor-details-contact h3 {
-	font-weight: 600;
-	font-size: 20px;
-	color: #2C2D3F;
-	margin-bottom: 30px;
-}
-.doctor-details-item .doctor-details-contact .basic-info {
-  margin: 0;
-  padding: 0;
-}
-.doctor-details-item .doctor-details-contact .basic-info li {
-	list-style-type: none;
-	display: block;
-	font-weight: 400;
-	font-size: 15px;
-	color: #2C2D3F;
-	margin-bottom: 10px;
-}
-.doctor-details-item .doctor-details-contact .basic-info li:last-child {
-  margin-bottom: 0;
-}
-.doctor-details-item .doctor-details-contact .basic-info li i {
-	display: inline-block;
-	color: #1A76D1;
-	margin-right: 8px;
-	font-size: 16px;
-	position: relative;
-	top: 1px;
-}
-.doctor-details-area .doctor-details-left .social{
-	margin-top:25px;
-}
-.doctor-details-area .doctor-details-left .social li{
-	display:inline-block;
-	margin-right:10px;
-}
-.doctor-details-area .doctor-details-left .social li:last-child{
-	margin-right:0px;
-}
-.doctor-details-area .doctor-details-left .social li a {
-	height: 34px;
-	width: 34px;
-	line-height: 34px;
-	text-align: center;
-	border: 1px solid #C8C8C8;
-	text-align: center;
-	padding: 0;
-	border-radius: 4px;
-	display: block;
-	color: #757575;
-	font-size: 16px;
-}
-.doctor-details-area .doctor-details-left .social li a:hover{
-	color:#fff;
-	background:#1A76D1;
-	border-color:transparent;
-}
-.doctor-details-item .doctor-details-work h3 {
-	font-weight: 600;
-	font-size: 20px;
-	color: #2C2D3F;
-	margin-top: 30px;
-}
-.doctor-details-item .doctor-details-work .time-sidual{
-	
-}
-.doctor-details-item .doctor-details-work .time-sidual{
-	overflow:hidden;
-}
-.doctor-details-item .doctor-details-work .time-sidual li {
-	display: block;
-	color: #2C2D3F;
-	width: 100%;
-	margin-bottom: 10px;
-}
-.doctor-details-item .doctor-details-work .time-sidual li span{
-	display:inline-block;
-	float:right;
-}
-.doctor-details-item .doctor-details-work .day-head .time {
-	font-weight: 400;
-	float: right;
-}
-
-.doctor-details-area .doctor-details-right{
-	padding-left: 60px;
-	padding-top: 70px;
-}
-.doctor-details-item .doctor-details-biography {
- 
-}
-.doctor-details-item .doctor-details-biography h3 {
-  font-weight: 600;
-  font-size: 24px;
-  color: #2f60bd;
-  margin-bottom: 25px;
-  margin-top: 25px;
-}
-.doctor-details-item .doctor-details-biography p {
-  margin-bottom: 0;
-}
-.doctor-details-item .doctor-details-biography ul {
-  margin: 0;
-  padding: 0;
-}
-.doctor-details-item .doctor-details-biography ul li {
-  list-style-type: none;
-  display: block;
-  margin-bottom: 10px;
-}
-.doctor-details-item .doctor-details-biography ul li:last-child {
-  margin-bottom: 0;
-}
-.doctor-details-item .doctor-name .name{
-	font-size:30px;
-	font-weight:600;
-}
-.doctor-details-item .doctor-name .deg {
-	font-size: 22px;
-	margin: 10px 0 5px 0;
-}
-.doctor-details-item .doctor-name .degree{
-	font-size: 16px;
-}
-/*====================
-	End Team CSS
-======================*/ 
 
 /*=======================
 	Start Blog CSS
@@ -1779,9 +1305,10 @@ body{
 }
 
 .blog .single-news {
-	background: #fff;
+	background: var(--white-color);
 	position: relative;
 	border-radius: 24px;
+	margin-bottom: 30px;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	transition: all 0.4s ease;
@@ -1802,7 +1329,7 @@ body{
 .blog .single-news .news-content {
 	border-radius: 24px;
 	text-align: left;
-	background: #fff;
+	background: var(--white-color);
 	z-index: 99;
 	position: relative;
 	padding: 30px;
@@ -1861,7 +1388,7 @@ body{
 .main-sidebar .single-widget {
 	margin-bottom: 30px;
 	padding: 40px;
-	background: #fff;
+	background: var(--white-color);
 	-webkit-box-shadow: 0px 0px 15px var(--secondary-bg-color);
 	-moz-box-shadow: 0px 0px 15px var(--secondary-bg-color);
 	box-shadow: 0px 0px 15px var(--secondary-bg-color);
@@ -1874,7 +1401,7 @@ body{
 	text-transform: capitalize;
 	margin-bottom: 30px;
 	display: block;
-	background: #fff;
+	background: var(--white-color);
 	padding-left: 12px;
 }
 .main-sidebar .single-widget .title::before {
@@ -1981,7 +1508,7 @@ body{
 	border-radius: 4px;
 }
 .main-sidebar .side-tags .tag a:hover{
-	color:#fff;
+	color: var(--white-color);
 	background: var(--light-yellow-color);
 	border-color:transparent;
 }
@@ -1992,7 +1519,7 @@ body{
 }
 .news-single .single-main {
 	margin-top: 30px;
-	background: #fff;
+	background: var(--white-color);
 	padding: 30px;
 	-webkit-box-shadow: 0px 0px 15px var(--secondary-bg-color);
 	-moz-box-shadow: 0px 0px 15px var(--secondary-bg-color);
@@ -2112,84 +1639,6 @@ body{
 /*=========================
    End Register CSS
 ===========================*/
-
-/*=====================
-   Start Faq CSS
-=======================*/
-.faq-head h2 {
-  margin-bottom: 35px;
-  font-weight: 600;
-  font-size: 25px;
-}
-.faq-wrap {
-  margin-bottom: 50px;
-}
-.faq-wrap:last-child {
-  margin-bottom: 30px;
-}
-.accordion {
-  padding-left: 0;
-  margin: 0;
-  padding: 0;
-}
-.accordion p {
-  font-size: 15px;
-  display: none;
-  padding: 20px 45px 15px 20px;
-  margin-bottom: 0;
-}
-.accordion a {
-	font-size: 16px;
-	width: 100%;
-	display: block;
-	cursor: pointer;
-	font-weight: 400;
-	padding: 15px 0 15px 18px;
-	border-radius: 0;
-	background: #fff;
-	color: #333;
-	border: 1px solid #eee;
-}
-.accordion a:hover {
-  color:#fff !important;
-  background:#1A76D1 !important;
-}
-.accordion a:after {
-  position: absolute;
-  right: 20px;
-  content: "+";
-  top: 16px;
-  color: #232323;
-  font-size: 25px;
-  font-weight: 700;
-}
-.accordion a:hover:after {
-  color: #fff !important;
-}
-.accordion li {
-  position: relative;
-  list-style-type: none;
-  margin-bottom: 30px;
-}
-.accordion li:first-child {
-  border-top: 0;
-}
-.accordion li:last-child {
-  margin-bottom: 0;
-}
-.accordion li a.active {
-  color: #ffffff;
-  background-color: #1A76D1;
-  border: 1px solid #1A76D1;
-}
-.accordion li a.active:after {
-  content: "-";
-  font-size: 25px;
-  color: #ffffff;
-}
-/*=====================
-   End Faq CSS
-=======================*/
 
 /*=========================
    Start Contact Us CSS
@@ -2412,462 +1861,6 @@ body{
 /*========================
 	End Error 404 CSS
 ==========================*/ 
-
-/*===========================
-	Start Mail Success CSS
-=============================*/ 
-.mail-seccess {
-	text-align: center;
-	background: #fff;
-	border-top: 1px solid #eee;
-}
-.mail-seccess .success-inner {
-	display: inline-block;
-}
-.mail-seccess .success-inner h1 {
-	font-size: 100px;
-	text-shadow: 3px 5px 2px #3333;
-	color: #1A76D1;
-	font-weight: 700;
-}
-.mail-seccess .success-inner h1 span {
-	display: block;
-	font-size: 25px;
-	color: #f17228;
-	font-weight: 600;
-	text-shadow: none;
-	margin-top: 20px;
-}
-.mail-seccess .success-inner p {
-	padding: 20px 15px;
-}
-.mail-seccess .success-inner .btn{
-	color:#fff;
-}
-/*===========================
-	End Mail Success CSS
-=============================*/ 
-
-/*=========================
-	Start Newsletter CSS
-===========================*/  
-.newsletter{
-	background:#EDF2FF;
-}
-.newsletter .subscribe-text{}
-.newsletter .subscribe-text h6{
-	font-size:22px;
-	margin-bottom:10px;
-	color:#2C2D3F;
-}
-.newsletter .subscribe-text p{}
-.newsletter .subscribe-form{
-	position:relative;
-}
-.newsletter .common-input {
-	height: 60px;
-	width: 300px;
-	border: none;
-	color: #333;
-	box-shadow: none;
-	text-shadow: none;
-	border-radius: 5px;
-	padding: 0px 25px;
-	font-weight: 500;
-	font-size: 14px;
-	background: #fff;
-	font-weight:400;
-}
-.newsletter .btn {
-	-webkit-transition: all 0.4s ease;
-	-moz-transition: all 0.4s ease;
-	transition: all 0.4s ease;
-	display: inline-block;
-	height: 60px;
-	line-height: 60px;
-	padding: 0;
-	width: 180px;
-	position: relative;
-	top: -2px;
-	border-radius: 5px;
-	margin-left: 10px;
-	font-size: 13px;
-	font-weight: 500;
-	box-shadow: 0px 5px 15px rgba(188, 199, 255, 0.75);
-}
-.newsletter .btn:before{
-	border-radius: 5px;
-}
-.newsletter .button:hover{
-	box-shadow:none;
-}
-/*=========================
-	End Newsletter CSS
-===========================*/  
-
-/*===============================
-	Start Doctor Calendar CSS
-=================================*/
-.doctor-calendar-area {
-  position: relative;
-  z-index: 1;
-}
-.doctor-calendar-table {
-  background-color: #ffffff;
-  -webkit-box-shadow: 0 10px 55px 5px rgba(137, 173, 255, 0.2);
-          box-shadow: 0 10px 55px 5px rgba(137, 173, 255, 0.2);
-}
-.doctor-calendar-table table {
-  margin-bottom: 0;
-}
-.doctor-calendar-table table thead tr th {
-  vertical-align: middle;
-  text-align: center;
-  background-color: #1A76D1;
-  border: none;
-  color: #ffffff;
-  text-transform: uppercase;
-  white-space: nowrap;
-  font-size: 16px;
-  font-weight: 500;
-  padding-top: 17px;
-  padding-bottom: 15px;
-}
-.doctor-calendar-table table tbody tr td {
-  vertical-align: middle;
-  text-align: center;
-  border: 1px solid #eeeeee;
-  border-top: none;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  white-space: nowrap;
-  padding-top: 25px;
-  padding-right: 25px;
-  padding-left: 25px;
-  padding-bottom: 25px;
-}
-.doctor-calendar-table table tbody tr td:first-child {
-  border-left: none;
-}
-.doctor-calendar-table table tbody tr td:last-child {
-  border-right: none;
-}
-.doctor-calendar-table table tbody tr td h3 {
-  margin-bottom: 0;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  font-size: 16px;
-  font-weight: 600;
-}
-.doctor-calendar-table table tbody tr td span {
-  display: block;
-  color: #7d7d7d;
-  font-size: 14.5px;
-  margin-top: 5px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-.doctor-calendar-table table tbody tr td span.time {
-  display: inline-block;
-  background-color: #dff5e8;
-  color: #1A76D1;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  line-height: 65px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  font-weight: 500;
-  font-size: 16px;
-}
-.doctor-calendar-table table tbody tr td:hover {
-  background-color: #1A76D1;
-  border-color: #1A76D1;
-}
-.doctor-calendar-table table tbody tr td:hover h3 {
-  color: #ffffff;
-}
-.doctor-calendar-table table tbody tr td:hover span {
-  color: #ffffff;
-}
-.doctor-calendar-table table tbody tr td:hover span.time {
-  background-color: #ffffff;
-  color: #1A76D1;
-}
-.doctor-calendar-table table tbody tr:last-child td {
-  border-bottom: none;
-}
-/*===============================
-	End Doctor Calendar CSS
-=================================*/
-
-/*=========================
-	Start About Us CSS
-===========================*/
-.about-area {
-  position: relative;
-  z-index: 1;
-}
-.about-image {
-  width: 100%;
-  height: 100%;
-  background-image: url(img/about-img.jpg);
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.about-image img {
-  display: none;
-}
-.about-content {
-  max-width: 555px;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  padding-left: 50px;
-}
-.about-content span {
-  display: block;
-  margin-bottom: 5px;
-  color: #1A76D1;
-  font-size: 17px;
-}
-.about-content h2 {
-  margin-bottom: 0;
-  line-height: 1.3;
-  font-size: 40px;
-  font-weight: 600;
-}
-.about-content p {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-.about-content ul {
-  padding-left: 0;
-  list-style-type: none;
-  margin-top: 25px;
-  margin-bottom: 0;
-}
-.about-content ul li {
-  margin-bottom: 16px;
-  position: relative;
-  padding-left: 34px;
-}
-.about-content ul li i {
-	width: 25px;
-	height: 25px;
-	line-height: 25px;
-	text-align: center;
-	border-radius: 100%;
-	background-color: #1A76D12B;
-	color: #1A76D1;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
-	display: inline-block;
-	font-size: 11px;
-	position: absolute;
-	left: 0;
-	top: -2px;
-}
-.about-content ul li:hover i {
-  background-color: #1A76D1;
-  color: #ffffff;
-}
-.about-content ul li:last-child {
-  margin-bottom: 0;
-}
-.about-content .btn {
-  margin-top: 30px;
-}
-/* Start Our Vision Area CSS */
-.our-vision-area {
-  position: relative;
-  z-index: 1;
-  padding-bottom: 70px;
-}
-.single-vision-box {
-  margin-bottom: 30px;
-  background-color: #ffffff;
-  -webkit-box-shadow: 0 10px 55px 5px rgba(137, 173, 255, 0.2);
-          box-shadow: 0 10px 55px 5px rgba(137, 173, 255, 0.2);
-  padding: 25px 20px;
-  position: relative;
-  z-index: 1;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  overflow: hidden;
-}
-.single-vision-box .icon {
-  margin-bottom: 20px;
-  text-align: center;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
-  border-radius: 100%;
-  background-color: #1A76D1;
-  color: #ffffff;
-  font-size: 25px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-.single-vision-box h3 {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  margin-bottom: 0;
-  position: relative;
-  font-size: 20px;
-  font-weight: 700;
-}
-.single-vision-box p {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  margin-top: 12px;
-  margin-bottom: 0;
-}
-.single-vision-box::before {
-  width: 0;
-  height: 100%;
-  z-index: -1;
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: #1A76D1;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-.single-vision-box::after {
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  border: 10px solid #ffffff;
-  left: -80px;
-  bottom: -80px;
-  border-radius: 50%;
-  z-index: -1;
-  opacity: 0.15;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-.single-vision-box:hover {
-  -webkit-transform: translateY(-8px);
-          transform: translateY(-8px);
-}
-.single-vision-box:hover::before {
-  width: 100%;
-}
-.single-vision-box:hover .icon {
-  background-color: #fff;
-  color: #1A76D1;
-}
-.single-vision-box:hover h3 {
-  color: #ffffff;
-}
-.single-vision-box:hover p {
-  color: #ffffff;
-}
-.single-vision-box:hover::after {
-  left: -50px;
-  bottom: -50px;
-}
-/* End Our Vision CSS */
-
-/* Our Mission Area CSS */
-.our-mission-area {
-  position: relative;
-  z-index: 1;
-}
-.our-mission-image {
-  width: 100%;
-  height: 100%;
-  background-image: url(img/mission-img.jpg);
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.our-mission-image img {
-  display: none;
-}
-.our-mission-content {
-  max-width: 555px;
-  margin-left: auto;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  padding-right: 50px;
-}
-.our-mission-content .sub-title {
-  display: block;
-  margin-bottom: 5px;
-  color: #1A76D1;
-  font-size: 17px;
-}
-.our-mission-content h2 {
-  margin-bottom: 0;
-  line-height: 1.3;
-  font-size: 40px;
-  font-weight: 600;
-}
-.our-mission-content p {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-.our-mission-content ul {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding-left: 0;
-  list-style-type: none;
-  margin-right: -15px;
-  margin-left: -15px;
-  margin-bottom: 0;
-  margin-top: 0;
-}
-.our-mission-content ul li {
-  -ms-flex: 0 0 50%;
-  -webkit-box-flex: 0;
-          flex: 0 0 50%;
-  max-width: 50%;
-  color: #7d7d7d;
-  font-size: 14.5px;
-  line-height: 1.7;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 25px;
-}
-.our-mission-content ul li .icon {
-  margin-bottom: 13px;
-  -webkit-box-shadow: 0 10px 55px 5px rgba(137, 173, 255, 0.3);
-          box-shadow: 0 10px 55px 5px rgba(137, 173, 255, 0.3);
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 50%;
-  color: #1A76D1;
-  font-size: 20px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-.our-mission-content ul li span {
-  display: block;
-  color: #121521;
-  text-transform: uppercase;
-  margin-bottom: 5px;
-  font-weight: 600;
-  font-size: 17px;
-}
-.our-mission-content ul li:hover .icon {
-  background-color: #1A76D1;
-  color: #ffffff;
-  border-radius: 100%;
-}
-/* End Our Mission CSS */
-
-/*=========================
-	End About Us CSS
-===========================*/
 
 /*=========================
 	Start Footer CSS
