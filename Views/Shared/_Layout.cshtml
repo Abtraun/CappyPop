@@ -13,7 +13,7 @@
         <title>@ViewData["Title"] - CappyPop_Full_HTML Group 9</title>
 		
 		<!-- Favicon -->
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="./favicon.ico" type="image/x-icon" />
 		
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Paytone+One&display=swap" rel="stylesheet">
@@ -56,7 +56,7 @@
 							<div class="col-lg-2 col-md-2 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="index.cshtml"><img src="img/logo.png" alt="logo" width="200" height="60"></a>
+									<a href="/Home/Index"><img src="img/logo.png" alt="logo" width="200" height="60"></a>
 								</div>
 								<!-- End Logo -->
 
@@ -71,7 +71,7 @@
 										<ul class="nav menu">
 											<li class="active"><a href="index.html">Home</a></li>
 
-											<li><a href="Views/Home/Boba.cshtml">Boba</a></li>
+											<li><a href="/Home/Boba">Boba</a></li>
 											
 											<li><a href="blog-single.html">Cappy's Life<i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
@@ -126,6 +126,7 @@
 			</div>
 			<!--/ End Header Inner -->
 		</header>
+
     <div class="container">
         <main role="main">
             @RenderBody()
