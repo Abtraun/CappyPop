@@ -124,7 +124,7 @@ a:hover {
     line-height: 50px;
     border-radius: 24px;
     background-color: var(--primary-bg-color);
-    color: #384D6C;
+    color: var(--primary-text-color)5;
     text-align: center;
     transition: color 0.2s;
 }
