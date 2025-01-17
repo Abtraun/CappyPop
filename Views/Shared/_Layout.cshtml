@@ -19,30 +19,32 @@
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Paytone+One&display=swap" rel="stylesheet">
 
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true">
 		<!-- Nice Select CSS -->
-		<link rel="stylesheet" href="css/nice-select.css">
+		<link rel="stylesheet" href="~/css/nice-select.css" asp-append-version="true">
 		<!-- Font Awesome CSS -->
-        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true">
 		<!-- icofont CSS -->
-        <link rel="stylesheet" href="css/icofont.css">
+        <link rel="stylesheet" href="~/css/icofont.css"asp-append-version="true">
 		<!-- Slicknav -->
-		<link rel="stylesheet" href="css/slicknav.min.css">
+		<link rel="stylesheet" href="~/css/slicknav.min.css" asp-append-version="true">
 		<!-- Owl Carousel CSS -->
-        <link rel="stylesheet" href="css/owl-carousel.css">
+        <link rel="stylesheet" href="~/css/owl-carousel.css" asp-append-version="true">
 		<!-- Datepicker CSS -->
-		<link rel="stylesheet" href="css/datepicker.css">
+		<link rel="stylesheet" href="~/css/datepicker.css" asp-append-version="true">
 		<!-- Animate CSS -->
-        <link rel="stylesheet" href="css/animate.min.css">
+        <link rel="stylesheet" href="~/css/animate.min.css" asp-append-version="true">
 		<!-- Magnific Popup CSS -->
-        <link rel="stylesheet" href="css/magnific-popup.css">
+        <link rel="stylesheet" href="~/css/magnific-popup.css" asp-append-version="true">
+		<link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
 		
 		<!-- General CSS -->
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="css/responsive.css">
-		<link rel="stylesheet" href="css/bobacard.css">	
-		<link rel="stylesheet" href="css/view-bobadetail.css">	
+		<link rel="stylesheet" href="~/css/user.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/css/normalize.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/css/responsive.css" asp-append-version="true">
+		<link rel="stylesheet" href="~/css/bobacard.css" asp-append-version="true">	
+		<link rel="stylesheet" href="~/css/view-bobadetail.css" asp-append-version="true">	
 
     </head>
 <body>
@@ -56,7 +58,7 @@
 							<div class="col-lg-2 col-md-2 col-12">
 								<!-- Start Logo -->
 								<div class="logo">
-									<a href="/Home/Index"><img src="img/logo.png" alt="logo" width="200" height="60"></a>
+									<a href="/"><img src="~/img/logo.png" alt="logo" width="200" height="60"></a>
 								</div>
 								<!-- End Logo -->
 
@@ -69,7 +71,7 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu">
-											<li class="active"><a href="index.html">Home</a></li>
+											<li class="active"><a href="/">Home</a></li>
 
 											<li><a href="/Home/Boba">Boba</a></li>
 											
@@ -127,11 +129,11 @@
 			<!--/ End Header Inner -->
 		</header>
 
-    <div class="container">
+
         <main role="main">
             @RenderBody()
         </main>
-    </div>
+    
 
 <!-- Footer Area -->
 		<footer id="footer" class="footer ">
@@ -220,45 +222,45 @@
 		<!--/ End Footer Area -->
 		
 		<!-- jquery Min JS -->
-        <script src="js/jquery.min.js"></script>
+        <script src="~/js/jquery.min.js"></script>
 		<!-- jquery Migrate JS -->
-		<script src="js/jquery-migrate-3.0.0.js"></script>
+		<script src="~/js/jquery-migrate-3.0.0.js"></script>
 		<!-- jquery Ui JS -->
-		<script src="js/jquery-ui.min.js"></script>
+		<script src="~/js/jquery-ui.min.js"></script>
 		<!-- Easing JS -->
-        <script src="js/easing.js"></script>
+        <script src="~/js/easing.js"></script>
 		<!-- Color JS -->
-		<script src="js/colors.js"></script>
+		<script src="~/js/colors.js"></script>
 		<!-- Popper JS -->
-		<script src="js/popper.min.js"></script>
+		<script src="~/js/popper.min.js"></script>
 		<!-- Bootstrap Datepicker JS -->
-		<script src="js/bootstrap-datepicker.js"></script>
+		<script src="~/js/bootstrap-datepicker.js"></script>
 		<!-- Jquery Nav JS -->
-        <script src="js/jquery.nav.js"></script>
+        <script src="~/js/jquery.nav.js"></script>
 		<!-- Slicknav JS -->
-		<script src="js/slicknav.min.js"></script>
+		<script src="~/js/slicknav.min.js"></script>
 		<!-- ScrollUp JS -->
-        <script src="js/jquery.scrollUp.min.js"></script>
+        <script src="~/js/jquery.scrollUp.min.js"></script>
 		<!-- Niceselect JS -->
-		<script src="js/niceselect.js"></script>
+		<script src="~/js/niceselect.js"></script>
 		<!-- Tilt Jquery JS -->
-		<script src="js/tilt.jquery.min.js"></script>
+		<script src="~/js/tilt.jquery.min.js"></script>
 		<!-- Owl Carousel JS -->
-        <script src="js/owl-carousel.js"></script>
+        <script src="~/js/owl-carousel.js"></script>
 		<!-- counterup JS -->
-		<script src="js/jquery.counterup.min.js"></script>
+		<script src="~/js/jquery.counterup.min.js"></script>
 		<!-- Steller JS -->
-		<script src="js/steller.js"></script>
+		<script src="~/js/steller.js"></script>
 		<!-- Wow JS -->
-		<script src="js/wow.min.js"></script>
+		<script src="~/js/wow.min.js"></script>
 		<!-- Magnific Popup JS -->
-		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script src="~/js/jquery.magnific-popup.min.js"></script>
 		<!-- Counter Up CDN JS -->
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 		<!-- Bootstrap JS -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="~/js/bootstrap.min.js"></script>
 		<!-- Main JS -->
-		<script src="js/main.js"></script>
+		<script src="~/js/main.js"></script>
         @await RenderSectionAsync("Scripts", required: false)
 
     </body>

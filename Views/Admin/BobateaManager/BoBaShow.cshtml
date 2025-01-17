@@ -1,0 +1,70 @@
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<CappyPop_Full_HTML.Models.ManagerAdmin.ListBobaTeaViewModel>
+<main>
+    <!-- Start Admin Dashbroad -->
+    <section class="admin-dashbroad section">
+        <div class="container">
+            <div class="row">
+
+                <!-- Start Main Content -->
+                <div class="col-lg-9">
+                    <section class="home-section">
+
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="home-title">
+                                    <h1>Edit Boba</h1>
+                                </div>
+                            </div>
+                            <div class="col-lg-4" style="transform: translateY(26px);">
+                                <div class="search">
+                                    <input type="text" class="input" placeholder="Search Boba"
+                                        onmouseout="this.value =''; this.blur();">
+                                    <a class="button" type="submit"><i class="icofont-search-2"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Start Boba Edit Listing -->
+                        <section class="boba-edit-list">
+                            <div class="container">
+                                <div class="row">
+                                    @foreach (var boba in Model)
+                                    {
+                                        <div class="col-lg-12">
+                                            <div class="single-edit-list">
+                                                <div class="row align-items-center">
+                                                    <div class="col-lg-3">
+                                                        <img class="product-image" src="@boba.PrimaryImage"
+                                                            alt="@boba.BobaName" />
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <h5>@boba.BobaName</h5>
+                                                        <h6>@boba.Price đ</h6>
+                                                        <p>@boba.Description</p>
+
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <div class="button">
+                                                            <a href="#" class="btn">Edit Boba</a>
+                                                            <a href="#" class="btn primary">Delete Boba</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                        </section>
+                        <!-- End Boba Edit Listing -->
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>

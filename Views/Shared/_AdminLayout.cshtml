@@ -1,0 +1,197 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Site keywords here">
+    <meta name="description" content="">
+    <meta name='copyright' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>@ViewData["Title"] - CappyPop_Full_HTML Group 9</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" />
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&family=Paytone+One&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" asp-append-version="true">
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="~/css/nice-select.css" asp-append-version="true">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="~/css/font-awesome.min.css" asp-append-version="true">
+    <!-- icofont CSS -->
+    <link rel="stylesheet" href="~/css/icofont.css" asp-append-version="true">
+    <!-- Slicknav -->
+    <link rel="stylesheet" href="~/css/slicknav.min.css" asp-append-version="true">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="~/css/owl-carousel.css" asp-append-version="true">
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="~/css/datepicker.css" asp-append-version="true">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="~/css/animate.min.css" asp-append-version="true">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="~/css/magnific-popup.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/_AdminLayout.css" asp-append-version="true">
+    <!-- General CSS -->
+    <link rel="stylesheet" href="~/css/user.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/normalize.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/responsive.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/bobacard.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/view-bobadetail.css" asp-append-version="true">
+
+</head>
+
+<body>
+    <header class="header">
+        <section class="admin-dashbroad section" style="padding: 0px;">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Start Sidemenu -->
+                    <div class="col-lg-3">
+
+                        <div class="sidebar">
+                            <div class="logo-details">
+                                <img src="~/img/favicon.png" alt="logo">
+
+                                <span class="logo_name">Cappy<span2>Pop</span2></span>
+                            </div>
+                            <ul class="nav-links">
+                                <li>
+                                    <a href="/admin_dashboard">
+                                        <i class="icofont-ui-home"></i>
+                                        <span class="link_name">Dashboard</span>
+                                    </a>
+
+                                </li>
+
+                                <li>
+                                    <a href="">
+                                        <i class="icofont-user-suited"></i>
+                                        <span class="link_name">My Profile</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <div class="iocn-link">
+                                        <a href="/admin/bobashow">
+                                            <i class="icofont-coconut-water"></i>
+                                            <span class="link_name">Boba Manage</span>
+                                        </a>
+                                        <i class="icofont-rounded-down arrow"></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">Boba Manage</a></li>
+                                        <li><a href="">Add new Boba</a></li>
+                                        <li><a href="">Edit Boba</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="iocn-link">
+                                        <a href="">
+                                            <i class="icofont-book-alt"></i>
+                                            <span class="link_name">Blogs & Articles</span>
+                                        </a>
+                                        <i class="icofont-rounded-down arrow"></i>
+                                    </div>
+                                    <ul class="sub-menu">
+                                        <li><a class="link_name" href="#">Blogs & Articles</a></li>
+                                        <li><a href="">Add new Article</a></li>
+                                        <li><a href="">Edit Article</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <i class="icofont-notification"></i>
+                                        <span class="link_name">Notifications</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <div class="profile-details">
+                                        <div class="profile-content">
+                                            <img src="~/img/admin-avatar.png" alt="profileImg">
+                                        </div>
+                                        <div class="name-job">
+                                            <div class="profile_name">Administer</div>
+                                            <div class="job">Group 9</div>
+                                        </div>
+                                        <a href=""><i class="icofont-logout"></i></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Sidemenu -->
+                </div>
+            </div>
+        </section>
+    </header>
+
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+
+    <!-- Footer Area -->
+    <footer id="footer" class="footer ">
+    </footer>
+    <!--/ End Footer Area -->
+
+    <!-- jquery Min JS -->
+    <script src="~/js/jquery.min.js"></script>
+    <!-- jquery Migrate JS -->
+    <script src="~/js/jquery-migrate-3.0.0.js"></script>
+    <!-- jquery Ui JS -->
+    <script src="~/js/jquery-ui.min.js"></script>
+    <!-- Easing JS -->
+    <script src="~/js/easing.js"></script>
+    <!-- Color JS -->
+    <script src="~/js/colors.js"></script>
+    <!-- Popper JS -->
+    <script src="~/js/popper.min.js"></script>
+    <!-- Bootstrap Datepicker JS -->
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <!-- Jquery Nav JS -->
+    <script src="~/js/jquery.nav.js"></script>
+    <!-- Slicknav JS -->
+    <script src="~/js/slicknav.min.js"></script>
+    <!-- ScrollUp JS -->
+    <script src="~/js/jquery.scrollUp.min.js"></script>
+    <!-- Niceselect JS -->
+    <script src="~/js/niceselect.js"></script>
+    <!-- Tilt Jquery JS -->
+    <script src="~/js/tilt.jquery.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="~/js/owl-carousel.js"></script>
+    <!-- counterup JS -->
+    <script src="~/js/jquery.counterup.min.js"></script>
+    <!-- Steller JS -->
+    <script src="~/js/steller.js"></script>
+    <!-- Wow JS -->
+    <script src="~/js/wow.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <!-- Counter Up CDN JS -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- Main JS -->
+    <script src="~/js/main.js"></script>
+    <script src="~/js/admin-script.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

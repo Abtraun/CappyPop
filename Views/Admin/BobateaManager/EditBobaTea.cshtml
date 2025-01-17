@@ -1,0 +1,85 @@
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main>
+    <section class="admin-dashbroad section">
+        <div class="container">
+            <div class="row">
+
+                <!-- Start Main Content -->
+                <div class="col-lg-9">
+                    <section class="home-section">
+
+                        <div class="home-title">
+                            <h1>Edit Detail Boba</h1>
+                        </div>
+
+                        <!-- Start Detail Boba -->
+                        <section class="detail-information">
+                            <div class="container">
+                                <div class="information-form">
+                                    <div class="row align-items-center">
+                                        <div class="col-lg-12">
+                                            <!-- Form -->
+                                            <form class="form" method="post" action="mail/mail.php">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <input type="text" name="name" placeholder="Name of Boba"
+                                                                required="">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <input type="text" name="email" placeholder="Price"
+                                                                required="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <input type="text" name="email" placeholder="Category"
+                                                                required="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <input type="text" name="email"
+                                                                placeholder="Upload Photo's URL" required="">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-12">
+                                                        <div class="form-group">
+                                                            <textarea name="message" placeholder="Description"
+                                                                required=""></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6 offset-lg-6 col-12">
+                                                        <div class="form-group login-btn">
+                                                            <button class="btn" type="submit">Save Changes</button>
+                                                            <button class="btn primary" type="reset">Cancel</button>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </form>
+                                            <!--/ End Form -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- End Detail Boba -->
+
+                </div>
+            </div>
+    </section>
+</main>
