@@ -35,7 +35,7 @@ public class BobaTeaShow : Controller
                 BobaId = v.BobaTeaId,
                 BobaName = v.Name,
                 Price = (int)v.Price,
-                Description = v.Description,
+                BobaDescription = v.Description,
                 PrimaryImage = v.ImageUrls.FirstOrDefault(i => i.IsPrimary == true)?.Url // Lấy hình ảnh chính
             }).ToList();
 

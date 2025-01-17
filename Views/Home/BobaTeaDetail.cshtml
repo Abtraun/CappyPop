@@ -1,0 +1,271 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model CappyPop_Full_HTML.Models.HomeViewModel.ViewBoBaTea;
+
+<main>
+    <section class="product-detail section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="product-left">
+                        <img src="@Model.SelectedBobaTea.PrimaryImageUrl" alt="boba">
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="product-right">
+                        <div class="product-info">
+
+                            <div class="info-detail">
+                                <p>@Model.SelectedBobaTea.BobaDescription</p>
+                                <h2>@Model.SelectedBobaTea.BobaName</h2>
+                                <h3>@Model.SelectedBobaTea.Price đ</h3>
+                                <h4><i class="icofont-delivery-time"></i>Fast Delivery<i
+                                        class="icofont-ui-timer"></i>Best taste within 20 mins</h4>
+                            </div>
+
+                            <div class="product-select">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="single-select">
+                                            <h5>Ice:</h5>
+                                            <select class="nice-select cart-form-select">
+                                                @foreach (var iceLevel in Model.SelectedIceLevels)
+                                                {
+                                                    <option value="@iceLevel">@iceLevel</option>
+                                                }
+                                            </select>
+
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-6">
+                                        <div class="single-select">
+                                            <h5>Sugar:</h5>
+                                            <select class="nice-select cart-form-select">
+                                                 @foreach (var sugarLevel in Model.SelectedSugarLevels)
+                                                {
+                                                    <option value="@sugarLevel">@sugarLevel</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="single-select">
+                                            <h5>Size:</h5>
+                                            <select class="nice-select cart-form-select">
+                                                @foreach (var size in Model.SelectedSizeNames)
+                                                {
+                                                    <option value="@size">@size</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="single-select">
+                                            <h5>Topping:</h5>
+                                            <select class="nice-select cart-form-select">
+                                                @foreach (var topping in Model.SelectedToppingNames)
+                                                {
+                                                    <option value="@topping">@topping</option>
+                                                }
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9">
+                                        <div class="single-select">
+                                            <h5>Quantity:</h5>
+
+                                            <button class="btn px-2"
+                                                onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                <i class="icofont-minus"></i>
+                                            </button>
+
+                                            <input min="1" name="quantity" value="2" type="number"
+                                                class="nice-select cart-form-select" style="width: 120px;" />
+
+                                            <button class="btn px-2"
+                                                onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                <i class="icofont-plus" style="width: 10px;"></i>
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button">
+                                <a href="user-mycart.html" class="btn">Add to Cart</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </section>
+
+    <!--/ End Boba Detail Page -->
+
+    <!-- Start Fun-facts -->
+    <div id="fun-facts" class="fun-facts section" style="background-color: var(--primary-bg-color);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>How does it work</h2>
+                        <img src="/img/favicon.png" alt="#" width="50" height="50">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Fun -->
+                    <div class="single-fun">
+                        <img src="/img/Icons.png" alt="logo" width="125" height="170">
+                        <div class="content">
+                            <span>Place your order</span>
+                            <p>Check over hundreds of menus to pick your favorite drinks</p>
+                        </div>
+                    </div>
+                    <!-- End Single Fun -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Fun -->
+                    <div class="single-fun">
+                        <img src="/img/Icons-1.png" alt="logo" width="125" height="170">
+                        <div class="content">
+                            <span>Select location</span>
+                            <p>Choose the location where your drinks will be delivered</p>
+                        </div>
+                    </div>
+                    <!-- End Single Fun -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Fun -->
+                    <div class="single-fun">
+                        <img src="/img/Icons-2.png" alt="logo" width="125" height="170">
+                        <div class="content">
+                            <span>Pay advanced</span>
+                            <p>It's quick, safe, and simple. Select several methods of payment</p>
+                        </div>
+                    </div>
+                    <!-- End Single Fun -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Fun -->
+                    <div class="single-fun">
+                        <img src="/img/Icons-3.png" alt="logo" width="125" height="170">
+                        <div class="content">
+                            <span>Enjoy</span>
+                            <p>Bobas are made and delivered directly to your home.</p>
+                        </div>
+                    </div>
+                    <!-- End Single Fun -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Fun-facts -->
+
+    <!-- Card Boba -->
+    <section class="section-products">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-8 col-lg-10">
+                    <div class="header">
+
+                        <h2>You May Also Like</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Single Product -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="single-product">
+
+                        <div class="part-1">
+
+                            <img src="/img/boba-img/boba.png" class="product-img">
+
+                            <ul>
+                                <li><a href="view-detail-boba.html"><i class="icofont-cart"></i></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Mint Boba</h3>
+                            <h4 class="product-price">38.000đ</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Product -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="single-product">
+                        <div class="part-1">
+
+                            <img src="/img/boba-img/boba-3.png" class="product-img">
+
+                            <ul>
+                                <li><a href="view-detail-boba.html"><i class="icofont-cart"></i></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Pink Machitto Black Pearl</h3>
+                            <h4 class="product-price">38.000đ</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Product -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="single-product">
+                        <div class="part-1">
+
+                            <img src="/img/boba-img/boba-4.png" class="product-img">
+                            <ul>
+                                <li><a href="view-detail-boba.html"><i class="icofont-cart"></i></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Orange Favour Milk Boba</h3>
+
+                            <h4 class="product-price">38.000đ</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Product -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="single-product">
+                        <div class="part-1">
+
+                            <img src="/img/boba-img/boba-2.png" class="product-img">
+
+                            <ul>
+                                <li><a href="view-detail-boba.html"><i class="icofont-cart"></i></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="part-2">
+                            <h3 class="product-title">Brow Chocolate Sugar</h3>
+                            <h4 class="product-price">38.000đ</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- End Card Boba -->
+</main>

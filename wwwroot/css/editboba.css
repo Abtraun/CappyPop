@@ -1,0 +1,195 @@
+ /* Adjust the width and height of the Select2 input field */
+ .js-example-basic-multiple-limit {
+     width: 100% !important;
+     /* Ensure it spans the full container width */
+     height: 43px;
+     /* Adjust height to match other input fields */
+     font-size: 14px;
+
+     /* Adjust font size if necessary */
+ }
+
+ /* Adjust the dropdown menu (Select2) height */
+ .select2-container .select2-selection--multiple {
+     height: 43px !important;
+     /* Match the height with other inputs */
+     line-height: 43px !important;
+     border-radius: 12px
+         /* Center the text vertically */
+ }
+
+ /* Adjust the dropdown list appearance */
+ .select2-dropdown {
+     max-height: 200px;
+     /* Adjust the height of the dropdown list */
+     overflow-y: auto;
+     /* Allow scroll if the list is too long */
+ }
+
+ .select2-selection__choice {
+     font-size: 12px;
+     /* Smaller font size */
+     padding: 5px 10px;
+     /* Reduce padding to make the item smaller */
+     margin: 0 5px;
+     line-height: 2.5;
+     height: 34px !important;
+ }
+
+ /* Adjust the overall size of the input box */
+ .js-example-basic-multiple-limit {
+     width: 100% !important;
+     height: 43px;
+     /* Keep height consistent */
+     font-size: 14px;
+     /* Adjust font size for the input */
+ }
+
+ /* Adjust the dropdown container and its height */
+ .select2-container .select2-selection--multiple {
+     height: 45px !important;
+     line-height: 45px;
+ }
+
+ /* Adjust the dropdown list (the menu where options are shown) */
+ .select2-dropdown {
+     max-height: 200px;
+     overflow-y: auto;
+ }
+
+ .select2-container .select2-search--inline .select2-search__field {
+     box-sizing: border-box;
+     border: none;
+     font-size: 100%;
+     margin-left: 12px;
+     margin-top: 0px;
+     padding: 0;
+ }
+
+ .custom-file-input {
+     display: inline-block;
+     min-width: 0;
+     max-width: 100%;
+     height: 100%;
+     margin: 0;
+     opacity: 100;
+     color: #ffffff;
+     cursor: pointer;
+     border: none;
+     border-radius: 24px;
+     background: var(--light-orange-color);
+     line-height: 20px;
+     padding: 10px 20px;
+ }
+ .upload-container-1{
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  
+
+
+  
+  .custom-file-input input[type="file"] {
+    display: none;
+  }
+  
+
+  .preview-container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .image-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .image-wrapper img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: white;
+    border: none;
+    width: 0px;
+    height: 0px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .delete-btn i {
+    font-size: 14px;
+  }
+  
+  .delete-btn:hover {
+    background: red;
+  } 
+  /*  */
+  
+  .upload-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: #f3f4f6;
+  }
+  
+  .upload-container #btnRefresh, #btnCrop, #croppieContainer, #croppedImage {
+    display: none;
+  }
+  
+  #btnRefresh, #btnCrop, #croppedImage {
+    margin: auto;
+  }
+  
+  .upload-container input[type="file"]::file-selector-button {
+    border-radius: 4px;
+    padding: 0 16px;
+    height: 40px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rbga(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    margin-right: 16px;
+    transition: background-color 200ms;
+  }
+  
+  .upload-container input[type="file"]::file-selector-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .upload-container input[type="file"]::file-selector-button:active {
+    background-color: #e5e7eb;
+  }
+  
+  .upload-container button {
+    color: #444444;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+  }
+  
+  

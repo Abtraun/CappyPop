@@ -1,6 +1,7 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@model CappyPop_Full_HTML.Models.ManagerAdmin.BobaViewModel;
 
 <main>
     <section class="admin-dashbroad section">
@@ -14,7 +15,20 @@
                         <div class="home-title">
                             <h1>Edit Detail Boba</h1>
                         </div>
-
+                        <div class="upload-container-1">
+                            <h1>Upload Multiple Images</h1>
+                            <form id="uploadForm" action="/admin/upload-image" method="post" enctype="multipart/form-data">
+                                <!-- Nút bấm -->
+                                <label for="fileInput" class="custom-file-input">Choose Images
+                                    <!-- Input file ẩn -->
+                                    <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                                </label>
+                                <button type="submit" class="upload-btn">Upload</button>
+                            </form>
+                            <div class="preview-container" id="previewContainer">
+                            </div>
+                        </div>
+                        
                         <!-- Start Detail Boba -->
                         <section class="detail-information">
                             <div class="container">
@@ -22,47 +36,136 @@
                                     <div class="row align-items-center">
                                         <div class="col-lg-12">
                                             <!-- Form -->
-                                            <form class="form" method="post" action="mail/mail.php">
+                                            <form class="form" enctype="multipart/form-data" method="post" asp-action="editbobatea">
+                                                @Html.AntiForgeryToken()
+                                                <input type="hidden" asp-for="SelectedBoba.BobaId"
+                                                    value="@Model.SelectedBoba.BobaId" />
+                                                    <input type="hidden" id="selectedImageUrls" name="selectedImageUrls" value="@Model.ImageUrlsString" />
+
                                                 <div class="row">
                                                     <div class="col-lg-12">
                                                         <div class="form-group">
-                                                            <input type="text" name="name" placeholder="Name of Boba"
-                                                                required="">
+
                                                         </div>
                                                     </div>
 
-
-                                                    <div class="col-lg-6">
+                                                    <div class="col-lg-9">
                                                         <div class="form-group">
-                                                            <input type="text" name="email" placeholder="Price"
-                                                                required="">
+                                                            <label for="name">BobaTea Name</label>
+                                                            <input type="text" id="name" asp-for="SelectedBoba.BobaName"
+                                                                placeholder="Nhập tên sản phẩm"
+                                                                value="@Model.SelectedBoba.BobaName" required />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <div class="form-group">
+                                                            <label for="quantity">BobaTea Quantity</label>
+                                                            <input type="text" id="quantity" asp-for="SelectedBoba.BobaQuantity"
+                                                                placeholder="Nhập số lượng"
+                                                                value="@Model.SelectedBoba.BobaQuantity" required />
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            <input type="text" name="email" placeholder="Category"
-                                                                required="">
+                                                            <label for="price">BobaTea Price</label>
+                                                            <input type="text" id="price" asp-for="SelectedBoba.Price"
+                                                                placeholder="Nhập giá"
+                                                                value="@Model.SelectedBoba.Price" required />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="ice">BobaTea ice Level</label>
+                                                            <select id="ice" asp-for="SelectedIceIds"
+                                                                class="js-example-basic-multiple-limit ice-select"
+                                                                multiple="multiple" style="width: 100%;">
+                                                                @if (Model?.AllIces != null)
+                                                                {
+                                                                    @foreach (var ice in Model.AllIces)
+                                                                    {
+                                                                        <!option value="@ice.Id"
+                                                                        @(Model.SelectedIceIds.Contains(ice.Id) ?
+                                                                            "selected" : "")>
+                                                                            @ice.Name</!option>
+                                                                    }
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                             <label for="sugar">BobaTea Sugar Level</label>
+                                                             <select id="sugar" asp-for="SelectedSugarIds"
+                                                                class="js-example-basic-multiple-limit sugar-select"
+                                                                multiple="multiple" style="width: 100%;">
+                                                                @if (Model?.AllSugars != null)
+                                                                {
+                                                                    @foreach (var sugar in Model.AllIces)
+                                                                    {
+                                                                        <!option value="@sugar.Id"
+                                                                        @(Model.SelectedSugarIds.Contains(sugar.Id) ?
+                                                                            "selected" : "")>
+                                                                            @sugar.Name</!option>
+                                                                    }
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label for="size">BobaTea Size Level</label>
+                                                           <select id="size" asp-for="SelectedSizeIds"
+                                                                class="js-example-basic-multiple-limit size-select"
+                                                                multiple="multiple" style="width: 100%;">
+                                                                @if (Model?.AllSizes != null)
+                                                                {
+                                                                    @foreach (var size in Model.AllSizes)
+                                                                    {
+                                                                        <!option value="@size.Id"
+                                                                        @(Model.SelectedSizeIds.Contains(size.Id) ?
+                                                                            "selected" : "")>
+                                                                            @size.Name</!option>
+                                                                    }
+                                                                }
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                       <div class="form-group">
+                                                        <label for="topping">BobaTea Topping</label>
+                                                           <select id="topping" asp-for="SelectedToppingIds"
+                                                                class="js-example-basic-multiple-limit size-select"
+                                                                multiple="multiple" style="width: 100%;">
+                                                                @if (Model?.AllTopping != null)
+                                                                {
+                                                                    @foreach (var topping in Model.AllTopping)
+                                                                    {
+                                                                        <!option value="@topping.Id"
+                                                                        @(Model.SelectedToppingIds.Contains(topping.Id) ?
+                                                                            "selected" : "")>
+                                                                            @topping.Name</!option>
+                                                                    }
+                                                                }
+                                                            </select>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-12">
                                                         <div class="form-group">
-                                                            <input type="text" name="email"
-                                                                placeholder="Upload Photo's URL" required="">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-lg-12">
-                                                        <div class="form-group">
-                                                            <textarea name="message" placeholder="Description"
-                                                                required=""></textarea>
+                                                            <label for="description">BobaTea Description</label>
+                                                            <textarea id="description" asp-for="SelectedBoba.BobaDescription" placeholder="Description"
+                                                                required style="height: 300px;" >@Model.SelectedBoba.BobaDescription</textarea>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-lg-6 offset-lg-6 col-12">
                                                         <div class="form-group login-btn">
-                                                            <button class="btn" type="submit">Save Changes</button>
+                                                            <button class="btn" type="submit" id="uploadData">Save
+                                                                Changes</button>
                                                             <button class="btn primary" type="reset">Cancel</button>
                                                         </div>
 
@@ -76,10 +179,204 @@
                                 </div>
                             </div>
                         </section>
-
                         <!-- End Detail Boba -->
-
                 </div>
             </div>
     </section>
 </main>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script>
+    // Handle the image upload button
+    document.querySelector(".add-image-btn").addEventListener("click", function () {
+        document.querySelector("#image-upload").click();
+    });
+</script>
+<script>
+    // Initialize Select2 for multi-select with a limit of 5 selections
+    $(".js-example-basic-multiple-limit").select2({
+        maximumSelectionLength: 5 // Maximum number of items that can be selected
+    });
+    $('#topping, #sugar, #ice, #size').on('change', function () {
+        // Trigger select2 to update the selected options before form submit
+        $(this).trigger('change');
+    });
+</script>
+
+<script>
+
+    document.querySelector(".add-image-btn").addEventListener("click", function () {
+        document.querySelector("#image-upload").click();
+    });
+    function formatState(state) {
+        if (!state.id) {
+            return state.text;
+        }
+        // Use .text() instead of HTML string concatenation to avoid script injection issues
+        $state.find("span").text(state.text);
+        $state.find("img").attr("src", baseUrl + "/" + state.element.value.toLowerCase() + ".png");
+
+        return $state;
+    };
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const fileInput = document.getElementById('fileInput');
+        const previewContainer = document.getElementById('previewContainer');
+        const imageUrlsInput = document.getElementById('selectedImageUrls');
+
+        // Hiển thị các ảnh đã có (từ server)
+        const existingImageUrls = @Html.Raw(Json.Serialize(Model.AllImages.Select(i => i.Url).ToList()));
+
+        // Hiển thị ảnh đã có từ server
+        existingImageUrls.forEach(url => {
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('image-wrapper');
+            const img = document.createElement('img');
+            img.src = url;
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.classList.add('delete-btn');
+            deleteBtn.innerHTML = '<i class="fa-solid fa-x"></i>';
+            deleteBtn.addEventListener('click', () => handleImageDelete(url, deleteBtn));
+
+            wrapper.appendChild(img);
+            wrapper.appendChild(deleteBtn);
+            previewContainer.appendChild(wrapper);
+        });
+
+        // Handle file input preview for new images
+        fileInput.addEventListener('change', event => {
+            const files = Array.from(event.target.files);
+            files.forEach((file, index) => {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    const wrapper = document.createElement('div');
+                    wrapper.classList.add('image-wrapper');
+                    wrapper.classList.add('preview'); // Thêm lớp 'preview' để dễ dàng xóa
+
+                    const img = document.createElement('img');
+                    img.src = e.target.result; // Preview ảnh mới
+                    img.alt = `Image ${index + 1}`;
+
+                    const deleteBtn = document.createElement('button');
+                    deleteBtn.classList.add('delete-btn');
+                    deleteBtn.innerHTML = '<i class="fa-solid fa-x"></i>';
+                    deleteBtn.addEventListener('click', () => wrapper.remove()); // Xóa ảnh preview
+
+                    wrapper.appendChild(img);
+                    wrapper.appendChild(deleteBtn);
+                    previewContainer.appendChild(wrapper);
+                };
+                reader.readAsDataURL(file); // Đọc file và hiển thị preview
+            });
+        });
+
+        // Xử lý khi người dùng submit form để upload ảnh mới
+        document.getElementById("uploadForm").addEventListener("submit", async event => {
+            event.preventDefault();
+
+            // Cập nhật giá trị của selectedImageUrls trước khi submit
+            updateImageUrls();
+
+            const formData = new FormData();
+            Array.from(fileInput.files).forEach(file => formData.append("files", file));
+
+            // Nếu không có ảnh mới nào được chọn, dừng lại
+            if (formData.getAll('files').length === 0 && imageUrlsInput.value === '') {
+                alert('No images selected.');
+                return;
+            }
+
+            try {
+                const response = await fetch('/admin/upload-image', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                // Kiểm tra nếu server trả về lỗi
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('Error from server:', errorData);
+                    alert(`Error uploading image: ${errorData.message || 'Unknown error'}`);
+                    return;
+                }
+
+                const data = await response.json();
+                console.log('Response data:', data);
+
+                if (data.fileUrls) {
+                    // Xóa tất cả ảnh preview trước khi hiển thị ảnh đã upload
+                    const previewWrappers = previewContainer.querySelectorAll('.preview');
+                    previewWrappers.forEach(wrapper => wrapper.remove());
+
+                    // Giữ lại các ảnh đã upload thành công
+                    data.fileUrls.forEach(url => {
+                        const wrapper = document.createElement('div');
+                        wrapper.classList.add('image-wrapper');
+
+                        const img = document.createElement('img');
+                        img.src = url;
+                        document.getElementById('selectedImageUrls').value = data.fileUrls.join(',');
+                        // Thêm nút xóa cho ảnh
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.classList.add('delete-btn');
+                        deleteBtn.innerHTML = '<i class="fa-solid fa-x"></i>';
+                        deleteBtn.addEventListener('click', () => handleImageDelete(url, deleteBtn));
+
+                        wrapper.appendChild(img);
+                        wrapper.appendChild(deleteBtn);
+                        previewContainer.appendChild(wrapper);
+                    });
+
+                    alert("Successfully uploaded image.");
+                } else {
+                    alert("Error uploading image.");
+                }
+
+            } catch (error) {
+                console.error('Error uploading image:', error);
+                alert('Error uploading image.');
+            }
+        });
+
+        async function handleImageDelete(imageUrl, deleteBtn) {
+            const imageId = imageUrl.split('/').pop(); // Extract the ID from URL
+
+            if (confirm('Are you sure you want to delete this image?')) {
+                try {
+                    // Attempt to delete the image from the server
+                    const response = await fetch(`/admin/delete-image/${imageId}`, { method: 'DELETE' });
+
+                    // Force deletion even if server returns an error (commented-out to allow for future handling)
+                    if (!response.ok) {
+                        console.warn('Failed to delete image from server, but proceeding with frontend deletion.');
+                    }
+
+                    // Force delete image from frontend
+                    deleteBtn.closest('.image-wrapper').remove(); // Remove image from UI
+
+                    // Optionally, you can still update any other front-end states if needed
+                    updateImageUrls();
+                } catch (error) {
+                    console.error('Error:', error);
+                    // In case of a network or server failure, still remove image from UI
+                    alert('Failed to delete image from the server. Image will be removed from UI.');
+                    deleteBtn.closest('.image-wrapper').remove(); // Remove image from UI
+                    updateImageUrls();
+                }
+            }
+        }
+
+
+        // Cập nhật giá trị của selectedImageUrls
+        function updateImageUrls() {
+            const imageWrappers = previewContainer.querySelectorAll('.image-wrapper img');
+            const imageUrls = Array.from(imageWrappers).map(img => img.src);
+            imageUrlsInput.value = imageUrls.join(',');
+        }
+    });
+</script>
