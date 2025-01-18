@@ -1,0 +1,267 @@
+@{
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model CappyPop_Full_HTML.Models.HomeViewModel.PaymentViewModel;
+<main>
+  <section class="user-account section">
+    <div class="container">
+      <div class="row">
+
+        <!-- Start Sidemenu -->
+        <div class="col-lg-3">
+          <div class="user-sidebar">
+            <ul class="nav-links">
+              <li>
+                <div class="profile-details">
+                  <div class="profile-content">
+                    <img src="/img/admin-avatar.png" alt="profileImg">
+                  </div>
+                  <div class="name-job">
+                    <div class="profile_name">User's Account</div>
+                    <div class="job">Group 9</div>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <a href="">
+                  <i class="icofont-ui-home"></i>
+                  <span class="link_name">Back to Home</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="">
+                  <i class="icofont-user-suited"></i>
+                  <span class="link_name">My Profile</span>
+                </a>
+              </li>
+
+              <li>
+                <div class="iocn-link">
+                  <a href="">
+                    <i class="icofont-coconut-water"></i>
+                    <span class="link_name">My Order</span>
+                  </a>
+                  <i class="icofont-rounded-down arrow"></i>
+                </div>
+                <ul class="sub-menu">
+                  <li><a class="link_name" href="">My Order</a></li>
+                  <li><a href="">My Cart</a></li>
+                  <li><a href="">Checkout</a></li>
+                  <li><a href="">Order History</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <a href="">
+                  <i class="icofont-location-pin"></i>
+                  <span class="link_name">Delivery Address</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="">
+                  <i class="icofont-notification"></i>
+                  <span class="link_name">Notifications</span>
+                </a>
+              </li>
+
+              <div class="button">
+                <a href="" class="btn"> Sign out <i class="icofont-logout"></i></a>
+              </div>
+            </ul>
+          </div>
+        </div>
+        <!-- End Sidemenu -->
+        <form method="POST">
+          @Html.AntiForgeryToken()
+          <!-- Start Main Content -->
+          <div class="col-lg-9">
+            <section class="home-section">
+
+              <div class="home-title">
+                <h1>Please choose a Payment Method</h1>
+              </div>
+
+              <!-- Start Choose Payment (Momo)-->
+
+              <section class="choose-payment">
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <button class="modal-btn">
+                      <img src="/img/payment-lg/vnpay-lg.png" alt="vnpay">
+                    </button>
+
+                    <button class="modal-btn">
+                      <img src="/img/payment-lg/cash-lg.png" alt="cash">
+                    </button>
+                  </div>
+                </div>
+              </section>
+
+              <!-- End Choose Payment (Momo)-->
+
+              <!-- Start Bill Information -->
+
+              <section class="bill-infor">
+                <div class="bill-right">
+
+                  <div class="single-bill-infor">
+                    <h6>Subtotal</h6>
+                    <p id="subtotal">50,000đ</p>
+                  </div>
+
+                  <div class="single-bill-infor">
+                    <h6>Delivery</h6>
+                    <p id="delivery">3,000đ</p>
+                  </div>
+
+                  <div class="bill-total">
+                    <h6>Total</h6>
+                    <p id="total">300,000đ</p>
+                  </div>
+
+                  <div class="bill-button">
+                    <button id="submit-order-button" type="button">Pay now</button>
+                    <a href="" class="btn primary">Go back</a>
+                  </div>
+
+                </div>
+              </section>
+
+              <!-- End Bill Information -->
+
+              <!-- Start Cart Listing -->
+
+              <section class="cart-list">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12">
+
+                      <!-- Start Card Table -->
+
+                      <div class="table-responsive">
+                        <table class="table">
+
+                          <thead>
+                            <tr>
+                              <th scope="col">Name</th>
+                              <th scope="col">Price</th>
+                              <th scope="col">Quantity</th>
+                              <th scope="col">Total</th>
+                            </tr>
+                          </thead>
+
+                          <tbody class="payment-details">
+                            <!-- Product rows will be populated here by JavaScript -->
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <!-- End Card Table -->
+
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- End Cart Listing -->
+
+            </section>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+@section Scripts {
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const success = urlParams.get('success');
+
+
+
+      // Lấy dữ liệu từ localStorage
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const paymentDetailsTable = document.querySelector('.payment-details');
+      const subtotalElement = document.querySelector('#subtotal');
+      const deliveryElement = document.querySelector('#delivery');
+      const totalElement = document.querySelector('#total');  // Ensure this element exists in the HTML
+
+      let totalPrice = 0;
+
+      // Duyệt qua từng sản phẩm trong giỏ hàng
+      if (cart && cart.length > 0) {
+        cart.forEach(item => {
+          const row = document.createElement('tr');
+          const itemTotal = item.price * item.quantity;
+          row.innerHTML = `
+              <td>${item.name} × ${item.quantity}</td>
+              <td>${item.price.toLocaleString()} đ</td>
+              <td>${item.quantity}</td>
+              <td>${itemTotal.toLocaleString()} đ</td>
+            `;
+          paymentDetailsTable.appendChild(row);
+
+          // Cộng tổng giá tiền
+          totalPrice += itemTotal;
+        });
+
+        // Phí vận chuyển (cố định)
+        const shippingFee = 10000;
+
+        // Cập nhật thông tin chi phí
+        subtotalElement.textContent = `${totalPrice.toLocaleString()}đ`;
+        deliveryElement.textContent = `${shippingFee.toLocaleString()}đ`;
+        totalElement.textContent = `${(totalPrice + shippingFee).toLocaleString()}đ`;
+      }
+    });
+
+    document.getElementById('submit-order-button').addEventListener('click', (event) => {
+      event.preventDefault();
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      if (cart.length === 0) {
+        return;
+      }
+
+      // Ensure the correct ID is used (total)
+      const totalPriceString = document.getElementById("total").textContent;  // Corrected here
+      const cleanedPrice = totalPriceString.replace(/[^\d.-]/g, '');
+      const totalPrice = parseInt(cleanedPrice.replace('.', '').replace(',', ''));
+      console.log(totalPrice);
+
+      const orderData = {
+        totalPayment: totalPrice,
+        cart: cart.map(item => ({ id: item.id, quantity: item.quantity })),
+      };
+
+      fetch('/home/userpayment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value,
+        },
+        body: JSON.stringify(orderData),
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            localStorage.removeItem('cart');
+            window.location.href = data.message;
+          } else {
+            alert(data.message || 'Có lỗi xảy ra.');
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+
+  </script>
+}

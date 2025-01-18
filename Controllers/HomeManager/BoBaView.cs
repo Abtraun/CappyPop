@@ -108,6 +108,13 @@ public class BoBaView : Controller
                 .Select(i => i.Url)
                 .ToList();
 
+            var toppingDetails = bobatea.ToppingBobateas
+             .Select(cv => new
+             {
+                 Name = cv.Topping.Name,
+                 Price = (int)cv.Topping.Price
+             }).ToList();
+
             var viewModel = new ViewBoBaTea
             {
                 SelectedBobaTea = new CappyPop_Full_HTML.Models.HomeViewModel.BobaTea
@@ -126,9 +133,11 @@ public class BoBaView : Controller
                 SelectedSizeNames = bobatea.SizeBobateas
                     .Select(mv => mv.Size.SizeName)
                     .ToList(),
-                SelectedToppingNames = bobatea.ToppingBobateas
-                    .Select(cv => cv.Topping.Name)
+                SelectedToppingNames = toppingDetails
+                    .Select(t => t.Name)
                     .ToList(),
+                SelectedToppingPrices = toppingDetails
+                    .ToDictionary(t => t.Name, t => t.Price),
                 SelectedSugarLevels = bobatea.SugarBobateas
                     .Select(cv => cv.Sugar.SugarLevel)
                     .ToList(),

@@ -1,0 +1,296 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<main>
+    <section class="user-account section">
+        <div class="container">
+            <div class="row">
+
+                <!-- Sidebar giữ nguyên -->
+                <div class="col-lg-3">
+                    <div class="user-sidebar">
+                        <!-- Start Sidemenu -->
+                        <div class="col-lg-3">
+
+                            <div class="user-sidebar">
+
+                                <ul class="nav-links">
+
+                                    <li>
+                                        <div class="profile-details">
+                                            <div class="profile-content">
+                                                <img src="/img/admin-avatar.png" alt="profileImg">
+                                            </div>
+                                            <div class="name-job">
+                                                <div class="profile_name">User's Account</div>
+                                                <div class="job">Group 9</div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <a href="index.html">
+                                            <i class="icofont-ui-home"></i>
+                                            <span class="link_name">Back to Home</span>
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+                                        <a href="user-profile.html">
+                                            <i class="icofont-user-suited"></i>
+                                            <span class="link_name">My Profile</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <div class="iocn-link">
+                                            <a href="user-mycart.html">
+                                                <i class="icofont-coconut-water"></i>
+                                                <span class="link_name">My Order</span>
+                                            </a>
+                                            <i class="icofont-rounded-down arrow"></i>
+                                        </div>
+                                        <ul class="sub-menu">
+                                            <li><a class="link_name" href="user-mycart.html">My Order</a></li>
+                                            <li><a href="/home/usermycart">My Cart</a></li>
+                                            <li><a href="/home/userpayment">Checkout</a></li>
+                                            <li><a href="use-order-history.html">Order History</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li>
+                                        <a href="user-delivery-address.html">
+                                            <i class="icofont-location-pin"></i>
+                                            <span class="link_name">Delivery Address</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="user-notification.html">
+                                            <i class="icofont-notification"></i>
+                                            <span class="link_name">Notifications</span>
+                                        </a>
+                                    </li>
+
+                                    <div class="button">
+                                        <a href="index.html" class="btn"> Sign out <i class="icofont-logout"></i></a>
+                                    </div>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Sidemenu -->
+                    </div>
+                </div>
+
+                <!-- Nội dung giỏ hàng -->
+                <div class="col-lg-9">
+                    <section class="home-section">
+
+                        <div class="home-title">
+                            <h1>My Cart</h1>
+                        </div>
+
+                        <!-- Danh sách sản phẩm trong giỏ -->
+                        <section class="cart-list">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Các sản phẩm trong giỏ sẽ được JavaScript thêm vào đây -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <!-- Tổng hóa đơn -->
+                        <section class="bill-infor">
+                            <div class="bill-right">
+                                <div class="single-bill-infor">
+                                    <h6>Subtotal</h6>
+                                    <p class="subtotal">0đ</p>
+                                </div>
+
+                                <div class="single-bill-infor">
+                                    <h6>Delivery</h6>
+                                    <p class="delivery-fee">10,000đ</p>
+                                </div>
+
+                                <div class="bill-total">
+                                    <h6>Total</h6>
+                                    <p class="total">10,000đ</p>
+                                </div>
+
+                                <div class="bill-button">
+                                    <button class="checkout-btn">Check out</button>
+                                    <button class="clear-cart-btn" onclick="clearCart()">Clear Cart</button>
+                                </div>
+                            </div>
+                        </section>
+
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('success');
+
+        if (success === 'True') {
+            Swal.fire({
+                icon: 'success',
+                title: 'Thành công',
+                text: 'Thanh toán thành công!',
+            });
+        } else if (success === 'False') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Thông báo',
+                text: 'Thanh toán thất bại! Vui lòng thử lại.',
+            });
+        }
+    });
+</script>
+<script>
+    // Populate the cart
+    function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartTable = document.querySelector('table tbody');
+        const subtotalElement = document.querySelector('.subtotal');
+        const totalElement = document.querySelector('.total');
+        const deliveryFee = 10000; // Delivery fee
+
+        cartTable.innerHTML = ''; // Clear the previous content
+        let subtotal = 0; // Initialize subtotal
+
+        cart.forEach(item => {
+            const row = document.createElement('tr');
+            const totalItemPrice = item.price * item.quantity;
+            subtotal += totalItemPrice; // Add to subtotal
+
+            row.innerHTML = `
+            <th scope="row">
+                <div class="d-flex align-items-center">
+                    <img src="${item.image}" alt="${item.name}" style="width: 150px; margin-right: 10px; padding:10px">
+                    <div class="cartlist-content">
+                        <h5>${item.name}</h5>
+                        <p>Size: ${item.size}</p>
+                        <p>Topping: ${item.topping}</p>
+                        <span class="delete" data-id="${item.id}">
+                            <button class="btn">
+                                <i class="icofont-ui-delete"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </th>
+            <th>${item.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</th>
+            <th>
+                <div class="d-flex">
+                    <button class="btn px-2 quantity-btn" data-action="decrement" data-id="${item.id}">
+                        <i class="icofont-minus"></i>
+                    </button>
+                    <input type="text" value="${item.quantity}" class="quantity-input" readonly style="width: 70px; text-align: center;">
+                    <button class="btn px-2 quantity-btn" data-action="increment" data-id="${item.id}">
+                        <i class="icofont-plus"></i>
+                    </button>
+                </div>
+            </th>
+            <th>${totalItemPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</th>
+        `;
+
+            cartTable.appendChild(row);
+        });
+
+        // Update subtotal and total
+        subtotalElement.innerText = `${subtotal.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}`;
+        totalElement.innerText = `${(subtotal + deliveryFee).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}`;
+    }
+
+    // Handle quantity update
+    function updateQuantity(action, productId) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const item = cart.find(item => item.id === productId);
+
+        if (item) {
+            if (action === 'increment') {
+                item.quantity += 1;
+            } else if (action === 'decrement' && item.quantity > 1) {
+                item.quantity -= 1;
+            }
+
+            // Save updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Re-load the cart content
+            loadCart();
+        }
+    }
+
+    // Handle item removal
+    function removeItem(productId) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const updatedCart = cart.filter(item => item.id !== productId);
+
+        // Save updated cart to localStorage and reload the cart
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        loadCart();
+    }
+
+    // Clear the entire cart
+    function clearCart() {
+        localStorage.removeItem('cart'); // Clear cart from localStorage
+        loadCart(); // Reload the cart (which will be empty now)
+    }
+
+    // Initialize the cart on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        loadCart();
+
+        const cartTable = document.querySelector('table tbody');
+
+        // Add event listeners for quantity buttons
+        cartTable.addEventListener('click', (event) => {
+            if (event.target.classList.contains('quantity-btn')) {
+                const action = event.target.dataset.action; // 'increment' or 'decrement'
+                const productId = event.target.dataset.id;
+
+                updateQuantity(action, productId);
+            }
+        });
+
+        // Add event listeners for delete buttons
+        cartTable.addEventListener('click', (event) => {
+            if (event.target.closest('.delete')) {
+                const productId = event.target.closest('.delete').dataset.id;
+                removeItem(productId);
+            }
+        });
+
+        // Add event listener for the "Clear Cart" button
+        document.querySelector('.clear-cart-btn').addEventListener('click', clearCart);
+    });
+
+    document.querySelector('.checkout-btn').addEventListener('click', () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        if (cart.length === 0) {
+            alert('Giỏ hàng trống. Vui lòng thêm sản phẩm trước khi thanh toán.');
+            return;
+        } else { window.location.href = '/home/userpayment' }
+    });
+</script>

@@ -19,6 +19,7 @@ namespace CappyPop_Full_HTML.Models.HomeViewModel
         public List<string> SelectedSugarLevels { get; set; }
         public List<string> SelectedToppingNames { get; set; }
         public List<string> SelectedSizeNames { get; set; }
+        public Dictionary<string, int> SelectedToppingPrices { get; set; }
         public List<int> SelectedIceIds { get; set; } // Thêm thuộc tính này
         public List<int> SelectedSugarIds { get; set; } // Thêm thuộc tính này
         public List<int> SelectedToppingIds { get; set; } // Thêm thuộc tính này

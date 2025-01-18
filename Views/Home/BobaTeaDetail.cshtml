@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="product-left">
-                        <img src="@Model.SelectedBobaTea.PrimaryImageUrl" alt="boba">
+                        <img id="main-image" src="@Model.SelectedBobaTea.PrimaryImageUrl" alt="boba">
                     </div>
                 </div>
 
@@ -18,9 +18,11 @@
                         <div class="product-info">
 
                             <div class="info-detail">
+                                <input type="hidden" id="bobaid" asp-for="SelectedBobaTea.BobaId"
+                                    value="@Model.SelectedBobaTea.BobaId" />
                                 <p>@Model.SelectedBobaTea.BobaDescription</p>
-                                <h2>@Model.SelectedBobaTea.BobaName</h2>
-                                <h3>@Model.SelectedBobaTea.Price đ</h3>
+                                <h2 id="bobaname">@Model.SelectedBobaTea.BobaName</h2>
+                                <h3 id="total-price">@Model.SelectedBobaTea.Price đ</h3>
                                 <h4><i class="icofont-delivery-time"></i>Fast Delivery<i
                                         class="icofont-ui-timer"></i>Best taste within 20 mins</h4>
                             </div>
@@ -46,7 +48,7 @@
                                         <div class="single-select">
                                             <h5>Sugar:</h5>
                                             <select class="nice-select cart-form-select">
-                                                 @foreach (var sugarLevel in Model.SelectedSugarLevels)
+                                                @foreach (var sugarLevel in Model.SelectedSugarLevels)
                                                 {
                                                     <option value="@sugarLevel">@sugarLevel</option>
                                                 }
@@ -57,7 +59,7 @@
                                     <div class="col-lg-4">
                                         <div class="single-select">
                                             <h5>Size:</h5>
-                                            <select class="nice-select cart-form-select">
+                                            <select class="nice-select cart-form-select" id="size-select">
                                                 @foreach (var size in Model.SelectedSizeNames)
                                                 {
                                                     <option value="@size">@size</option>
@@ -66,13 +68,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="single-select">
                                             <h5>Topping:</h5>
-                                            <select class="nice-select cart-form-select">
+                                            <select class="nice-select cart-form-select" id="topping-select"
+                                                onchange="updatePrice()">
                                                 @foreach (var topping in Model.SelectedToppingNames)
                                                 {
-                                                    <option value="@topping">@topping</option>
+                                                    <option value="@topping"
+                                                        data-price="@Model.SelectedToppingPrices[topping]">
+                                                        @topping (+@Model.SelectedToppingPrices[topping]đ)
+                                                    </option>
                                                 }
 
                                             </select>
@@ -87,7 +93,7 @@
                                                 <i class="icofont-minus"></i>
                                             </button>
 
-                                            <input min="1" name="quantity" value="2" type="number"
+                                            <input min="1" name="quantity" value="1" type="number"
                                                 class="nice-select cart-form-select" style="width: 120px;" />
 
                                             <button class="btn px-2"
@@ -101,7 +107,7 @@
                             </div>
 
                             <div class="button">
-                                <a href="user-mycart.html" class="btn">Add to Cart</a>
+                                <a href="/home/usermycart" id="addcart" class="btn">Add to Cart</a>
                             </div>
 
                         </div>
@@ -269,3 +275,89 @@
     </section>
     <!-- End Card Boba -->
 </main>
+<script>
+    function updatePrice() {
+        // Giá cơ bản
+        let basePrice = parseFloat("@Model.SelectedBobaTea.Price");
+
+        // Lấy giá topping
+        let toppingSelect = document.getElementById("topping-select");
+        let selectedOption = toppingSelect.options[toppingSelect.selectedIndex];
+        let toppingPrice = parseFloat(selectedOption.getAttribute("data-price")) || 0;
+
+        // Tính tổng giá
+        let totalPrice = basePrice + toppingPrice;
+        totalPrice = Math.round(totalPrice); // Làm tròn giá trị nếu cần
+
+        // Làm tròn tổng giá cho tiền tệ (VND)
+        totalPrice = Math.round(totalPrice);
+
+        // Hiển thị giá mới
+        document.getElementById("total-price").innerText = totalPrice.toLocaleString() + " đ";
+    }
+
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        updatePrice();
+    });
+</script>
+<script>
+    function addToCart(item) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng hay chưa
+        const existingIndex = cart.findIndex(cartItem => cartItem.id === item.id);
+
+        if (existingIndex !== -1) {
+            Swal.fire({
+                icon: 'info',
+                title: 'Thông báo',
+                text: 'Sản phẩm này đã có trong giỏ hàng!',
+            });
+        } else {
+            cart.push(item);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            Swal.fire({
+                icon: 'success',
+                title: 'Thành công',
+                text: 'Sản phẩm đã được thêm vào giỏ hàng!',
+            });
+        }
+    }
+
+    // Thêm sự kiện cho nút "Add to Cart"
+    document.getElementById('addcart').addEventListener('click', () => {
+        // Lấy giá trị từ DOM
+        const id = document.getElementById('bobaid').value;
+        const name = document.getElementById('bobaname').textContent;
+        const size = document.getElementById('size-select').value;
+        const topping = document.getElementById('topping-select').value;
+
+        // Lấy và xử lý giá
+        const priceText = document.getElementById('total-price').textContent;
+        const price = parseFloat(priceText.replace(' đ', '').replace(/\./g, '').replace(',', '.'));
+
+
+        const quantityInput = document.querySelector('input[name="quantity"]');
+        const quantity = parseInt(quantityInput.value) || 1; // Giá trị mặc định là 1 nếu không nhập
+        const imageUrl = document.getElementById('main-image').getAttribute('src');
+
+        // Tạo đối tượng sản phẩm
+        const item = {
+            id: id,
+            name: name,
+            size: size,
+            topping: topping,
+            price: price, // Giá đúng là một số
+            quantity: quantity,
+            image: imageUrl,
+        };
+
+        // Thêm vào giỏ hàng
+        addToCart(item);
+    });
+
+
+
+</script>

@@ -1,3 +1,6 @@
+
+using CappyPop_Full_HTML.Models.HomeViewModel;
+using CappyPop_Full_HTML.Models.Services;
 using CappyPop_Full_HTML.Models.Tables;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http.Features;
@@ -10,6 +13,9 @@ builder.Services.AddDbContext<bobateashopContext>(options =>
                       ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IVnPayService, VnPayService>();
 
 var app = builder.Build();
 
